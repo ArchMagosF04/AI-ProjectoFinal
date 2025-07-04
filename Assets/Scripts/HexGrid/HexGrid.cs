@@ -17,7 +17,8 @@ public class HexGrid : MonoBehaviour
 
     private Vector3 startPos;
 
-    private void Start()
+    [ContextMenu("GenerateGrid")]
+    public void GenerateGrid()
     {
         AddGap();
         CalcStartPos();
