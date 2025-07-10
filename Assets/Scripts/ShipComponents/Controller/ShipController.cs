@@ -14,9 +14,9 @@ public class ShipController : MonoBehaviour
 
     protected virtual void Update()
     {
-        Movement.CalculateDesiredDirection();
-        Movement.RotateTowardsDirection(Movement.DesiredDirection);
-        Movement.MoveShip();
+        //Movement.CalculateDesiredDirection();
+        //Movement.RotateTowardsDirection(Movement.DesiredDirection);
+        //Movement.MoveShip();
     }
 
     protected virtual void FixedUpdate()
