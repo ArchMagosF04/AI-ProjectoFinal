@@ -9,9 +9,12 @@ public class ProjectileWeapon : Weapon
 
     public override void FireWeapon()
     {
-        Vector3 direction = (target.position.NoY() - transform.position.NoY()).normalized;
+        if (Time.time < timeOfLastShot + timeBetweenShots || Target == null) return;
+
+        Vector3 direction = (Target.position.NoY() - transform.position.NoY()).normalized;
 
         Bullet bullet = Instantiate(projectilePrefab, transform.position, Quaternion.LookRotation(direction, Vector3.up));
         bullet.FireBullet();
+        timeOfLastShot = Time.time;
     }
 }

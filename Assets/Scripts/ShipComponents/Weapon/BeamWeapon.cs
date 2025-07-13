@@ -24,9 +24,11 @@ public class BeamWeapon : Weapon
 
     public override void FireWeapon()
     {
+        if (Time.time < timeOfLastShot + timeBetweenShots || Target == null) return;
+
         lineRenderer.SetPosition(0, transform.position);
 
-        Vector3 direction = (target.position.NoY() - transform.position.NoY());
+        Vector3 direction = (Target.position.NoY() - transform.position.NoY());
 
         if (Physics.Raycast(transform.position, direction.normalized, out RaycastHit hit))
         {
@@ -34,6 +36,7 @@ public class BeamWeapon : Weapon
             {
                 Debug.Log("Fire");
                 health.TakeDamage(damage);
+                timeOfLastShot = Time.time;
                 StartCoroutine(DrawLine());
             }
         }
@@ -41,7 +44,7 @@ public class BeamWeapon : Weapon
 
     private IEnumerator DrawLine()
     {
-        lineRenderer.SetPosition(1, target.position);
+        lineRenderer.SetPosition(1, Target.position);
         lineRenderer.enabled = true;
 
         yield return new WaitForSeconds(duration);

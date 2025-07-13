@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342f9887a80565f4a89ba392fa8af4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 200
   damage: 10
   targetMask:
     serializedVersion: 2

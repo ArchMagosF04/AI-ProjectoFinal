@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
     #region Variables
 
-    public Transform target;
+    [field: SerializeField] public Transform Target { get; protected set; }
 
     [SerializeField] protected bool freeFireMode;
 
@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (target != null && freeFireMode && Time.time > timeOfLastShot + timeBetweenShots)
+        if (Target != null && freeFireMode && Time.time > timeOfLastShot + timeBetweenShots)
         {
             FireWeapon();
             timeOfLastShot = Time.time;
@@ -47,18 +47,18 @@ public class Weapon : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (freeFireMode && target == null)
+        if (freeFireMode && Target == null)
         {
             radar.RadarBurst();
 
             targetId = radar.GetFavoriteTarget();
             
-            if (targetId != null) target = targetId.Transform;
+            if (targetId != null) Target = targetId.Transform;
         }
 
-        if (target != null && freeFireMode)
+        if (Target != null && freeFireMode)
         {
-            if (!sensor.CanDetectTarget(target)) target = null;
+            if (!sensor.CanDetectTarget(Target)) Target = null;
         }
     }
 
@@ -66,6 +66,13 @@ public class Weapon : MonoBehaviour
 
     public virtual void FireWeapon()
     {
-        
     }
+
+    public virtual void ToggleFreeFireMode(bool input) 
+    {
+        freeFireMode = input;
+        Target = null;
+    }
+
+    public virtual void SetTarget(Transform target) => this.Target = target;
 }

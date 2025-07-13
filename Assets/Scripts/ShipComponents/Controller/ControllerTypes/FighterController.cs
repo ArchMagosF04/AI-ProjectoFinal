@@ -7,11 +7,6 @@ public class FighterController : ShipController
     #region Variables
 
     //States
-    public Fighter_Idle IdleState { get; private set; }
-    public Fighter_Flee FleeState {  get; private set; }
-    public Fighter_FindTarget FindTargetState { get; private set; }
-    public Fighter_Patrol PatrolState { get; private set; }
-    public Fighter_Chase ChaseState { get; private set; }
 
     #endregion
 
@@ -50,11 +45,12 @@ public class FighterController : ShipController
     {
         base.SetUpStateMachine();
 
-        IdleState = new Fighter_Idle(this, stateMachine, movement);
-        FleeState = new Fighter_Flee(this, stateMachine, movement);
-        FindTargetState = new Fighter_FindTarget(this, stateMachine, movement);
-        PatrolState = new Fighter_Patrol(this, stateMachine, movement);
-        ChaseState = new Fighter_Chase(this, stateMachine, movement);
+        IdleState = new ShipST_Idle(this, stateMachine, movement);
+        FleeState = new ShipST_Flee(this, stateMachine, movement);
+        FindTargetState = new ShipST_FindTarget(this, stateMachine, movement);
+        PatrolState = new ShipST_Patrol(this, stateMachine, movement);
+        ChaseState = new ShipST_Chase(this, stateMachine, movement);
+        AttackState = new ShipST_AttackChase(this, stateMachine, movement);
 
         stateMachine.Initialize(IdleState);
     }

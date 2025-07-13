@@ -22,6 +22,11 @@ public class SensorDetection : MonoBehaviour
         return (CheckDistance(target) && CheckAngle(target) && CheckView(target));
     }
 
+    public bool CanDetectTargetWithDistanceMultiplier(Transform target, float multiplier) //Collective check of all conditions.
+    {
+        return (CheckDistanceWithMultiplier(target, multiplier) && CheckAngle(target) && CheckView(target));
+    }
+
     public bool CheckDistance(Transform target) //Checks if the target is within range of vision.
     {
         float distance = Vector3.Distance(target.position, transform.position);
