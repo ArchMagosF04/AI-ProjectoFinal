@@ -15,7 +15,7 @@ public class ShipMovement : MonoBehaviour
 
     [SerializeField, Range(10, 500)] private float rotationSpeed;
     [SerializeField] private float moveSpeed;
-    [field: SerializeField] public float ArrivalDistance { get; private set; } 
+    [SerializeField, Range(-1, 1)] private float turnThreshold;
 
 
     [Header("Pursuit")]
@@ -26,7 +26,9 @@ public class ShipMovement : MonoBehaviour
 
     [Header("Debug")]
 
-    [SerializeField] private bool DebugTargetFuturePos;
+    [SerializeField] private bool debugTargetFuturePos;
+    [SerializeField] protected bool measureDistance;
+    [SerializeField] private float distanceToMeasure;
 
 
     public Vector3 DesiredDirection { get; private set; }
@@ -80,19 +82,33 @@ public class ShipMovement : MonoBehaviour
     public void MoveShip()
     {
         Vector3 moveVector = transform.forward * moveSpeed * Time.deltaTime;
+        Vector3 avoidance = obstacleAvoidance.Avoid();
 
-        //Apply Obstacle Avoidance
-        moveVector += obstacleAvoidance.Avoid();
+        transform.position += avoidance;
 
-        transform.position += moveVector;
+        if (Vector3.Dot(transform.forward, DesiredDirection) > turnThreshold)
+        {
+            transform.position += moveVector;
+        }
+    }
+
+    public void ChangeSteering(SteeringMode mode)
+    {
+        currentMode = mode;
     }
 
     private void OnDrawGizmos()
     {
-        if (DebugTargetFuturePos)
+        if (debugTargetFuturePos)
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(pursuit.FuturePos, 15f);
+        }
+
+        if (measureDistance)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, distanceToMeasure);
         }
     }
 }

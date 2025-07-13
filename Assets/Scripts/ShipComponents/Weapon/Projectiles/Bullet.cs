@@ -6,13 +6,19 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private int damage;
+    [SerializeField] private LayerMask targetMask;
+    [SerializeField] private float lifeTime;
 
     private Rigidbody rb;
-    private LayerMask targetMask;
-
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, lifeTime);
     }
 
     public void FireBullet()
@@ -22,7 +28,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == targetMask)
+        if (/*other.gameObject.layer == targetMask*/  other.CompareTag("RedTeam"))
         {
             if (other.TryGetComponent<HealthController>(out HealthController health))
             {

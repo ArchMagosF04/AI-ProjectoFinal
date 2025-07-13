@@ -7,7 +7,7 @@ public class HealthController : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
     [SerializeField] private GameObject[] particles;
-    public int CurrentHealth { get; private set; }
+    public int CurrentHealth; /*{ get; private set; }*/
 
     public Action OnDeath;
 

@@ -5,17 +5,13 @@ using System.Linq;
 using UnityEngine;
 
 [Serializable]
-public class SensorDetection
+public class SensorDetection : MonoBehaviour
 {
     [Header("Detection")]
 
     [SerializeField] private float detectionRange; //Range of vision.
     [SerializeField, Range(10f, 360f)] private float detectionAngle; //Angle of vision.
     [SerializeField] private LayerMask obstaclesMask; //Layer that blocks view.
-    [SerializeField] private LayerMask enemyMask;
-
-
-    [SerializeField] public Transform transform;
 
     [Header("Debug")]
 
@@ -50,32 +46,6 @@ public class SensorDetection
         Vector3 dir = target.position - transform.position;
 
         return !Physics.Raycast(transform.position, dir.normalized, dir.magnitude, obstaclesMask);
-    }
-
-    public Collider[] SearchForEnemiesInRange()
-    {
-        Collider[] found = Physics.OverlapSphere(transform.position, detectionRange * 0.85f, enemyMask);
-
-        bool notAllObstructed = false;
-
-        if (found.Length == 0) return null;
-
-        for (int i = 0; i < found.Length; i++)
-        {
-            Vector3 direction = found[i].transform.position - transform.position;
-            if (Physics.Raycast(transform.position, direction.normalized, direction.magnitude, obstaclesMask))
-            {
-                found[i] = null;
-            }
-            else
-            {
-                notAllObstructed = true;
-            }
-        }
-
-        if (!notAllObstructed) return null;
-
-        return found;
     }
 
     private void OnDrawGizmos()
