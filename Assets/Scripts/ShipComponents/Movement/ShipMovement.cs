@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(ObstacleAvoidance))]
 public class ShipMovement : MonoBehaviour
 {
-    public enum SteeringMode { Seek, Pursuit, Flee, Arrival, None}
+    public enum SteeringMode { Seek, Pursuit, Flee, None}
 
     [SerializeField] private SteeringMode currentMode = SteeringMode.Seek;
     [field: SerializeField] public Transform TargetLocation { get; private set; }
@@ -22,7 +22,6 @@ public class ShipMovement : MonoBehaviour
 
     [SerializeField] private float timePrediction;
     [SerializeField] private float closeEnoughDist;
-    [SerializeField] private ShipMovement targetsMovement;
 
     [Header("Debug")]
 
@@ -38,34 +37,42 @@ public class ShipMovement : MonoBehaviour
     private ObstacleAvoidance obstacleAvoidance;
 
     //Steerings
+    private Steer_Seek seek;
     private Steer_Pursuit pursuit;
+    private Steer_Flee flee;
 
     private void Awake()
     {
         obstacleAvoidance = GetComponent<ObstacleAvoidance>();
+        DesiredDirection = Vector3.zero;
+        seek = new Steer_Seek(transform, TargetLocation);
+        pursuit = new Steer_Pursuit(transform, TargetLocation, timePrediction, closeEnoughDist);
+        flee = new Steer_Flee(transform, TargetLocation);
     }
 
     private void Start()
     {
-        pursuit = new Steer_Pursuit(transform, targetsMovement, timePrediction, closeEnoughDist);
+        
     }
 
     public void CalculateDesiredDirection()
     {
-        Vector3 dir = (TargetLocation.position.NoY() - transform.position.NoY()).normalized;
+        Vector3 dir = Vector3.zero;
 
         //SteeringBehaviourModifier <--- TODO
         switch (currentMode)
         {
             case SteeringMode.Seek:
+                dir = seek.MoveDirection();
                 break;
             case SteeringMode.Pursuit:
                 dir = pursuit.MoveDirection();
                 break;
             case SteeringMode.Flee:
+                dir = flee.MoveDirection();
                 break;
-            case SteeringMode.Arrival:
             default:
+                dir = Vector3.zero;
                 break;
         }
 
@@ -74,6 +81,8 @@ public class ShipMovement : MonoBehaviour
 
     public void RotateTowardsDirection(Vector3 direction)
     {
+        if (DesiredDirection == Vector3.zero) return;
+
         Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
@@ -86,6 +95,8 @@ public class ShipMovement : MonoBehaviour
 
         transform.position += avoidance;
 
+        if (DesiredDirection == Vector3.zero) return;
+
         if (Vector3.Dot(transform.forward, DesiredDirection) > turnThreshold)
         {
             transform.position += moveVector;
@@ -95,6 +106,15 @@ public class ShipMovement : MonoBehaviour
     public void ChangeSteering(SteeringMode mode)
     {
         currentMode = mode;
+    }
+
+    public void ChangeTarget(Transform newTarget)
+    {
+        TargetLocation = newTarget;
+
+        seek.SetTarget(newTarget);
+        pursuit.SetTarget(newTarget);
+        flee.SetTarget(newTarget);
     }
 
     private void OnDrawGizmos()

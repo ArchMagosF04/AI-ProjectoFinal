@@ -19,7 +19,7 @@ public class BaseState
 
     public virtual void OnEnter()
     {
-        DoChecks();
+        Debug.Log($"{controller.name} - State Changed to: {this.GetType().ToString()} ");
         startTime = Time.time;
     }
 

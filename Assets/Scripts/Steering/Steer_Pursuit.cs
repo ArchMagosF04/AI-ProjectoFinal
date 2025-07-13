@@ -10,17 +10,17 @@ public class Steer_Pursuit : ISteering
     private float closeEnough;
     public Vector3 FuturePos { get; private set; }
 
-    public Steer_Pursuit(Transform transform, ShipMovement target, float timePrediction, float closeEnough)
+    public Steer_Pursuit(Transform transform, Transform target, float timePrediction, float closeEnough)
     {
         this.transform = transform;
-        this.target = target;
+        if (target != null) this.target = target.GetComponent<ShipMovement>();
         this.timePrediction = timePrediction;
         this.closeEnough = closeEnough;
     }
 
     public void SetTarget(Transform target)
     {
-        this.target = target.GetComponent<ShipMovement>();
+        if (target != null) this.target = target.GetComponent<ShipMovement>();
     }
 
     public Vector3 MoveDirection()

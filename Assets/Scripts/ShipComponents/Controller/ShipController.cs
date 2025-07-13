@@ -6,16 +6,22 @@ using UnityEngine;
 public class ShipController : MonoBehaviour
 {
     #region Variables
+    [field: SerializeField] public SensorDetection ShipSensor { get; protected set; }
+    [field: SerializeField] public Radar ShipRadar { get; protected set; }
 
 
+    public Transform AttackTarget { get; protected set; }
 
     //Components
-
     public ShipID ShipID { get; protected set; }
+    public HealthController ShipHealth { get; protected set; }
+    public PathfindSeek PathfindSeek { get; protected set; }
+    public PathfindPatrol PathfindPatrol { get; protected set; }
     protected ShipMovement movement;
 
+
     //StateMachine
-    protected StateMachine stateMachine;
+    public StateMachine stateMachine { get; protected set; }
 
     //States
 
@@ -27,23 +33,30 @@ public class ShipController : MonoBehaviour
     protected virtual void Awake()
     {
         movement = GetComponent<ShipMovement>();
+        ShipHealth = GetComponent<HealthController>();
+        PathfindSeek = GetComponent<PathfindSeek>();
+        PathfindPatrol = GetComponent<PathfindPatrol>();
     }
 
     protected virtual void Start()
     {
-        SetShipID();
         SetUpStateMachine();
+        SetShipID();
     }
 
     protected virtual void Update()
     {
-        
+        stateMachine.CurrentState.OnUpdate();
     }
 
     protected virtual void FixedUpdate()
     {
-
+        stateMachine.CurrentState.OnFixedUpdate();
     }
+
+    protected virtual void OnEnable() { }
+    protected virtual void OnDisable() { }
+
     #endregion
 
     protected virtual void SetUpStateMachine()
@@ -51,10 +64,9 @@ public class ShipController : MonoBehaviour
         stateMachine = new StateMachine();
     }
 
-    protected virtual void SetShipID()
-    {
+    protected virtual void SetShipID() { }
 
-    }
+    public virtual void SelectAttackTarget(Transform target) => AttackTarget = target;
 }
 
 public enum ShipTypes { Fighter, Corvette, Destroyer, Cruiser }

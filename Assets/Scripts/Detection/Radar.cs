@@ -25,14 +25,14 @@ public class Radar : MonoBehaviour
     //Other
     private Collider[] radarBlips;
 
-    private void Start()
+    private void Awake()
     {
         detectedShips = new List<ShipID>();
     }
 
     public void RadarBurst()
     {
-        detectedShips.Clear();
+        if (detectedShips.Count > 0) detectedShips.Clear();
 
         radarBlips = Physics.OverlapSphere(transform.position, shortRangeRadar, enemyLayer);
 
@@ -56,6 +56,28 @@ public class Radar : MonoBehaviour
                 }
             }
         }
+    }
+
+    public ShipID GetClosestTarget()
+    {
+        if (detectedShips.Count == 0) return null;
+
+        ShipID chosenTarget = null;
+
+        float lowestScore = 9000000;
+
+        foreach (ShipID ship in detectedShips)
+        {
+            float score = Vector3.Distance(transform.position, ship.Transform.position);
+
+            if (score < lowestScore)
+            {
+                chosenTarget = ship;
+                lowestScore = score;
+            }
+        }
+
+        return chosenTarget;
     }
 
     public ShipID GetFavoriteTarget()

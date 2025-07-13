@@ -347,8 +347,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2030546835355685836}
-  - component: {fileID: 2695349762365682861}
   - component: {fileID: 623519844703539773}
+  - component: {fileID: 2695349762365682861}
   m_Layer: 8
   m_Name: Detection
   m_TagString: Untagged
@@ -371,6 +371,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4472801592316886116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &623519844703539773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388623113141629599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e405cc25af8834ba25ebad530fa427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 350
+  detectionAngle: 300
+  obstaclesMask:
+    serializedVersion: 2
+    m_Bits: 8
+  debugGizmos: 0
 --- !u!114 &2695349762365682861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,24 +413,6 @@ MonoBehaviour:
   corvetteMultiplier: 3
   destroyerMultiplier: 0.5
   cruiserMultiplier: 1.5
-  debugGizmos: 0
---- !u!114 &623519844703539773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4388623113141629599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73e405cc25af8834ba25ebad530fa427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 300
-  detectionAngle: 300
-  obstaclesMask:
-    serializedVersion: 2
-    m_Bits: 8
   debugGizmos: 0
 --- !u!1 &4840904196471619783
 GameObject:
@@ -829,6 +829,9 @@ GameObject:
   - component: {fileID: 2802236473852316594}
   - component: {fileID: 5447292734758641134}
   - component: {fileID: 2331237122043361709}
+  - component: {fileID: 5907477943959421007}
+  - component: {fileID: 8717539661432261650}
+  - component: {fileID: 9143808234482505935}
   m_Layer: 8
   m_Name: FighterBlue
   m_TagString: Untagged
@@ -889,6 +892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c94d7e34ee23b42a8043d24b9b19a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ShipSensor>k__BackingField: {fileID: 623519844703539773}
+  <ShipRadar>k__BackingField: {fileID: 2695349762365682861}
 --- !u!114 &5447292734758641134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,7 +911,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 136
-  DebugGizmos: 1
+  DebugGizmos: 0
 --- !u!114 &2331237122043361709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,10 +931,66 @@ MonoBehaviour:
   turnThreshold: -1
   timePrediction: 0
   closeEnoughDist: 0
-  targetsMovement: {fileID: 0}
   debugTargetFuturePos: 0
   measureDistance: 0
   distanceToMeasure: 0
+--- !u!114 &5907477943959421007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785521419837897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b29fb99eba2b14cb135d1a1f57f7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8717539661432261650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785521419837897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d048cecd56b2484491749988e24fecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrivalDistance: 55
+  nodeDetectionRadius: 55
+  nodeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  currentPath: []
+  currentPathIndex: 0
+--- !u!114 &9143808234482505935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785521419837897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2304913182bb44419a8fdcc0e3364bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrivalDistance: 55
+  nodeDetectionRadius: 55
+  nodeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nodeCircuit:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentPath: []
 --- !u!1 &7475763605553232997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,7 +1244,7 @@ MonoBehaviour:
   obstaclesMask:
     serializedVersion: 2
     m_Bits: 8
-  debugGizmos: 1
+  debugGizmos: 0
 --- !u!114 &4239720792924519650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,9 +1266,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   fighterMultiplier: 0.5
-  corvetteMultiplier: 0.5
-  destroyerMultiplier: 0.5
-  cruiserMultiplier: 0.5
+  corvetteMultiplier: 1
+  destroyerMultiplier: 1
+  cruiserMultiplier: 1
   debugGizmos: 0
 --- !u!1001 &546387398034342442
 PrefabInstance:
