@@ -20,8 +20,6 @@ public class ShipST_Idle : BaseState
         movement.ChangeTarget(null);
         controller.SelectAttackTarget(null);
         idleDuration = Random.Range(minIdleTime, maxIdleTime);
-
-        idleDuration = minIdleTime; //Delete Later.
     }
 
     public override void OnUpdate()

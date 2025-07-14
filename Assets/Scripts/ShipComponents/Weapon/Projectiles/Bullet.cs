@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private int damage;
-    [SerializeField] private LayerMask targetMask;
-    [SerializeField] private float lifeTime;
+     private float speed;
+     private int damage;
+     private LayerMask targetMask;
+     private float lifeTime;
 
     private Rigidbody rb;
     
@@ -21,6 +21,14 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
+    public void SetStats(float speed, int damage, LayerMask targetMask, float lifetime)
+    {
+        this.speed = speed;
+        this.damage = damage;
+        this.targetMask = targetMask;
+        this.lifeTime = lifetime;
+    }
+
     public void FireBullet()
     {
         rb.velocity = transform.forward * speed; 
@@ -28,7 +36,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (/*other.gameObject.layer == targetMask*/  other.CompareTag("RedTeam"))
+        if ((targetMask.value & (1 << other.gameObject.layer)) > 0)
         {
             if (other.TryGetComponent<HealthController>(out HealthController health))
             {

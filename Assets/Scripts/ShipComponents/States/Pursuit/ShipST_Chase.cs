@@ -19,7 +19,7 @@ public class ShipST_Chase : BaseState
     {
         base.OnUpdate();
 
-        if (controller.AttackTarget != null && controller.WeaponSensor.CanDetectTargetWithDistanceMultiplier(controller.AttackTarget, 0.6f))
+        if (controller.AttackTarget != null && controller.WeaponSensor.CanDetectTargetWithDistanceMultiplier(controller.AttackTarget, 0.8f))
         {
             stateMachine.ChangeState(controller.AttackState);
         }

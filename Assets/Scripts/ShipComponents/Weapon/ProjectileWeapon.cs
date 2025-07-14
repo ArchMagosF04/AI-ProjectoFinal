@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class ProjectileWeapon : Weapon
 {
-    [Header("Projectile")]
-    [SerializeField] private Bullet projectilePrefab;
+    protected ProjectileWeaponStats projectileStats;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        projectileStats = (ProjectileWeaponStats)stats;
+    }
 
     public override void FireWeapon()
     {
-        if (Time.time < timeOfLastShot + timeBetweenShots || Target == null) return;
+        if (Time.time < timeOfLastShot + projectileStats.TimeBetweenShots || Target == null) return;
 
-        Vector3 direction = (Target.position.NoY() - transform.position.NoY()).normalized;
+        Vector3 direction = (Target.position - transform.position).normalized;
 
-        Bullet bullet = Instantiate(projectilePrefab, transform.position, Quaternion.LookRotation(direction, Vector3.up));
+        Bullet bullet = Instantiate(projectileStats.BulletPrefab, transform.position, Quaternion.LookRotation(direction, Vector3.up));
+        bullet.SetStats(projectileStats.Speed, projectileStats.Damage, projectileStats.TargetMask, projectileStats.LifeTime);
         bullet.FireBullet();
         timeOfLastShot = Time.time;
     }

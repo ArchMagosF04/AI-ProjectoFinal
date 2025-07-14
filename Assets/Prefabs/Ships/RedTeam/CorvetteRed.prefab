@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4798427356257519426}
   - component: {fileID: 5744793846463908038}
   - component: {fileID: 1709318596588972183}
+  - component: {fileID: 7969437023573396172}
   m_Layer: 7
   m_Name: CorvetteRed
   m_TagString: RedTeam
@@ -76,8 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5db376de374024580a868964a500b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ShipSensor>k__BackingField: {fileID: 2731441613610409583}
-  <ShipRadar>k__BackingField: {fileID: 3004690544529515819}
+  shipSensor: {fileID: 0}
+  shipRadar: {fileID: 0}
+  weaponSensor: {fileID: 0}
+  weaponRadar: {fileID: 0}
+  weapons: []
 --- !u!114 &7983729512158888605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +191,29 @@ MonoBehaviour:
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 20
   deathParticles: []
+--- !u!114 &7969437023573396172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938346105231393913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b3cf2c756c0ff459f6c28850f86aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoidPriority: 1
+  separationRadius: 0
+  cohesionRadius: 0
+  alignmentRadius: 0
+  teamLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  separationWeight: 0
+  cohesionWeight: 0
+  alignmentWeight: 0
+  DebugGizmos: 1
 --- !u!1 &1063368104775203918
 GameObject:
   m_ObjectHideFlags: 0

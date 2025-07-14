@@ -23,16 +23,9 @@ public class PathfindPatrol : MonoBehaviour
         aStar = GetComponent<AStarComponent>();
     }
 
-    private void Start()
-    {
-        currentNode = 0;
-        nextNode = 1;
-        currentPath = aStar.FindPath(nodeCircuit[currentNode], nodeCircuit[nextNode]);
-        TargetLocation = currentPath[0].transform;
-    }
-
     public void StartPatrolFromLocation(Transform start)
     {
+        nextNode = 1;
         currentPathIndex = 0;
         currentNode = nextNode - 1;
         if (nextNode == 0) currentNode = nodeCircuit.Count - 1;

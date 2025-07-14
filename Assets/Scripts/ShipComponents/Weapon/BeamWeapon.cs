@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class BeamWeapon : Weapon
 {
-    [Header("BeamStats")]
-    [SerializeField] private int damage;
-    [SerializeField] protected float duration;
+    private BeamWeaponStats beamStats;
 
     private LineRenderer lineRenderer;
 
     protected override void Awake()
     {
         base.Awake();
+        beamStats = (BeamWeaponStats)stats;
         lineRenderer = GetComponent<LineRenderer>();
     }
 
@@ -24,18 +24,18 @@ public class BeamWeapon : Weapon
 
     public override void FireWeapon()
     {
-        if (Time.time < timeOfLastShot + timeBetweenShots || Target == null) return;
+        if (Time.time < timeOfLastShot + beamStats.TimeBetweenShots || Target == null) return;
 
         lineRenderer.SetPosition(0, transform.position);
 
-        Vector3 direction = (Target.position.NoY() - transform.position.NoY());
+        Vector3 direction = (Target.position - transform.position);
 
         if (Physics.Raycast(transform.position, direction.normalized, out RaycastHit hit))
         {
             if (hit.collider.TryGetComponent<HealthController>(out HealthController health))
             {
                 Debug.Log("Fire");
-                health.TakeDamage(damage);
+                health.TakeDamage(beamStats.Damage);
                 timeOfLastShot = Time.time;
                 StartCoroutine(DrawLine());
             }
@@ -47,7 +47,7 @@ public class BeamWeapon : Weapon
         lineRenderer.SetPosition(1, Target.position);
         lineRenderer.enabled = true;
 
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(beamStats.LaserDuration);
 
         lineRenderer.enabled = false;
     }

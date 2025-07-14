@@ -6,6 +6,8 @@ public class Weapon : MonoBehaviour
 {
     #region Variables
 
+    [SerializeField] protected WeaponStats stats;
+
     [field: SerializeField] public Transform Target { get; protected set; }
 
     [SerializeField] protected bool freeFireMode;
@@ -13,9 +15,6 @@ public class Weapon : MonoBehaviour
     [Header("Components")]
     [SerializeField] protected SensorDetection sensor;
     [SerializeField] protected Radar radar;
-
-    [Header("Weapon Stats")]
-    [SerializeField, Range(0.1f, 10f)] protected float timeBetweenShots;
 
     //Other
     protected float timeOfLastShot;
@@ -38,7 +37,7 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Target != null && freeFireMode && Time.time > timeOfLastShot + timeBetweenShots)
+        if (Target != null && freeFireMode && Time.time > timeOfLastShot + stats.TimeBetweenShots)
         {
             FireWeapon();
             timeOfLastShot = Time.time;

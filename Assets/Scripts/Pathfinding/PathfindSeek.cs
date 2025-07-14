@@ -46,10 +46,6 @@ public class PathfindSeek : MonoBehaviour
                     potentialNodes.Add(pathNode);
                 }
             }
-
-            //Vector3 dir = nodes[i].transform.position - point.position;
-            //if (Physics.Raycast(point.position, dir.normalized, dir.magnitude, obstacleLayer))
-            //    nodes[i] = null;
         }
 
         PathNode closest = null;
@@ -70,10 +66,6 @@ public class PathfindSeek : MonoBehaviour
 
     public bool ProgressChase()
     {
-
-        //Vector3 myPosition = new Vector3(transform.position.x, 0f, transform.position.z);
-        //Vector3 targetPosition = new Vector3(currentPath[currentPathIndex].transform.position.x, 0f, currentPath[currentPathIndex].transform.position.z);
-
         if (!ReachedFinalDestination && Vector3.Distance(transform.position.NoY(), currentPath[currentPathIndex].transform.position.NoY()) <= arrivalDistance) //Compares the distance between the character and the destination waypoint.
         {
             GoToNextInCurrentPath(); //If it arrived at the destination then change the target.

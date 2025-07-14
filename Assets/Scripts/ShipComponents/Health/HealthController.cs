@@ -26,6 +26,14 @@ public class HealthController : MonoBehaviour
         LowHealthInvoked = false;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TakeDamage(9999999);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
