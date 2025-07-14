@@ -24,7 +24,9 @@ public class BeamWeapon : Weapon
 
     public override void FireWeapon()
     {
-        if (Time.time < timeOfLastShot + beamStats.TimeBetweenShots || Target == null) return;
+        if (Target == null || Time.time < timeOfLastShot + beamStats.TimeBetweenShots) return;
+
+        if (!sensor.CanDetectTarget(Target)) return;
 
         lineRenderer.SetPosition(0, transform.position);
 

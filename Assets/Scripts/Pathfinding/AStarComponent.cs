@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+[RequireComponent(typeof(PathfindPatrol), typeof(PathfindSeek))]
 public class AStarComponent : MonoBehaviour
 {
     private PathNode[] copyNodes;

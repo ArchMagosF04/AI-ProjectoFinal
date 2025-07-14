@@ -1,5 +1,83 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &212693962711116720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8384767778889042147}
+  - component: {fileID: 5124713839771455213}
+  - component: {fileID: 5348158756018546233}
+  m_Layer: 7
+  m_Name: Weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8384767778889042147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212693962711116720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4495634787473481054}
+  - {fileID: 1621980498832018056}
+  m_Father: {fileID: 5842806092963878114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5124713839771455213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212693962711116720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e405cc25af8834ba25ebad530fa427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 200
+  detectionAngle: 300
+  obstaclesMask:
+    serializedVersion: 2
+    m_Bits: 8
+  debugGizmos: 0
+--- !u!114 &5348158756018546233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212693962711116720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b13433d45b8d747a5ef0d960ed01a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shortRangeRadar: 200
+  longRangeRadar: 200
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  fighterMultiplier: 0.5
+  corvetteMultiplier: 1
+  destroyerMultiplier: 2
+  cruiserMultiplier: 3
+  debugGizmos: 0
 --- !u!1 &938346105231393913
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,14 +88,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5842806092963878114}
   - component: {fileID: 9140662556072687620}
-  - component: {fileID: 8845229406182302704}
-  - component: {fileID: 7983729512158888605}
-  - component: {fileID: 7871275178405218086}
-  - component: {fileID: 1979010698792779303}
-  - component: {fileID: 4798427356257519426}
-  - component: {fileID: 5744793846463908038}
-  - component: {fileID: 1709318596588972183}
-  - component: {fileID: 7969437023573396172}
+  - component: {fileID: 1260960085242069024}
+  - component: {fileID: 69278330403895977}
+  - component: {fileID: 3400414469261433232}
+  - component: {fileID: 2317365804019816245}
+  - component: {fileID: 1238663181881616310}
+  - component: {fileID: 1105733660403789958}
+  - component: {fileID: 5316185844212476226}
+  - component: {fileID: 3025390081827407545}
   m_Layer: 7
   m_Name: CorvetteRed
   m_TagString: RedTeam
@@ -40,6 +118,7 @@ Transform:
   m_Children:
   - {fileID: 5383618165923882386}
   - {fileID: 7347196921214993159}
+  - {fileID: 8384767778889042147}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!136 &9140662556072687620
@@ -65,7 +144,7 @@ CapsuleCollider:
   m_Height: 56.5
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8845229406182302704
+--- !u!114 &1260960085242069024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,12 +156,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5db376de374024580a868964a500b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipSensor: {fileID: 0}
-  shipRadar: {fileID: 0}
-  weaponSensor: {fileID: 0}
-  weaponRadar: {fileID: 0}
-  weapons: []
---- !u!114 &7983729512158888605
+  shipSensor: {fileID: 2731441613610409583}
+  shipRadar: {fileID: 3004690544529515819}
+  weaponSensor: {fileID: 5124713839771455213}
+  weaponRadar: {fileID: 5348158756018546233}
+  weapons:
+  - {fileID: 7866299128593704230}
+  - {fileID: 4032955336230287499}
+--- !u!114 &69278330403895977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,13 +175,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82dc3ebaae23ae4387c06e7d4c8168b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 55
+  detectionRange: 32
   avoidForce: 50
   obstacleMask:
     serializedVersion: 2
     m_Bits: 264
-  DebugGizmos: 1
---- !u!114 &7871275178405218086
+  DebugGizmos: 0
+--- !u!114 &3400414469261433232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938346105231393913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b3cf2c756c0ff459f6c28850f86aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoidPriority: 3
+  separationRadius: 32
+  cohesionRadius: 45
+  alignmentRadius: 60
+  teamLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  separationWeight: 1.5
+  cohesionWeight: 0.1
+  alignmentWeight: 0.8
+  DebugGizmos: 0
+--- !u!114 &2317365804019816245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,15 +218,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMode: 0
   <TargetLocation>k__BackingField: {fileID: 0}
-  rotationSpeed: 180
-  moveSpeed: 30
-  turnThreshold: 0
-  timePrediction: 0.1
+  rotationSpeed: 135
+  moveSpeed: 40
+  turnThreshold: 0.2
+  timePrediction: 0.2
   closeEnoughDist: 0
   debugTargetFuturePos: 0
   measureDistance: 0
   distanceToMeasure: 0
---- !u!114 &1979010698792779303
+--- !u!114 &1238663181881616310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,10 +235,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 938346105231393913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96b29fb99eba2b14cb135d1a1f57f7c0, type: 3}
+  m_Script: {fileID: 11500000, guid: f2304913182bb44419a8fdcc0e3364bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4798427356257519426
+  arrivalDistance: 55
+  nodeDetectionRadius: 55
+  nodeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nodeCircuit: []
+  currentPath: []
+--- !u!114 &1105733660403789958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +267,7 @@ MonoBehaviour:
     m_Bits: 8
   currentPath: []
   currentPathIndex: 0
---- !u!114 &5744793846463908038
+--- !u!114 &5316185844212476226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,17 +276,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 938346105231393913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2304913182bb44419a8fdcc0e3364bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 96b29fb99eba2b14cb135d1a1f57f7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrivalDistance: 55
-  nodeDetectionRadius: 55
-  nodeLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  nodeCircuit: []
-  currentPath: []
---- !u!114 &1709318596588972183
+--- !u!114 &3025390081827407545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,33 +291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b7b45b3ec1ac54c99f5b37bf045122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 800
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 20
-  deathParticles: []
---- !u!114 &7969437023573396172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938346105231393913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0b3cf2c756c0ff459f6c28850f86aec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoidPriority: 1
-  separationRadius: 0
-  cohesionRadius: 0
-  alignmentRadius: 0
-  teamLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  separationWeight: 0
-  cohesionWeight: 0
-  alignmentWeight: 0
-  DebugGizmos: 1
+  deathParticles:
+  - {fileID: 3872354423513460817, guid: d06c0b0261b9d8c469b767363cc2f50b, type: 3}
+  - {fileID: 581771736156101043, guid: c9d3445ead5fe884db56f29ce3ea54ae, type: 3}
 --- !u!1 &1063368104775203918
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +461,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.3
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -579,7 +662,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.3
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -780,7 +863,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.3
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -851,6 +934,56 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!1 &3813780311653898474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4495634787473481054}
+  - component: {fileID: 7866299128593704230}
+  m_Layer: 8
+  m_Name: RapidFireCannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4495634787473481054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813780311653898474}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.7, y: -4, z: 21.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8384767778889042147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7866299128593704230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813780311653898474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f838596db1795f842835cddffcfb2577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 01b2ff6668e98b943a75ac9a4f9912ba, type: 2}
+  <Target>k__BackingField: {fileID: 0}
+  freeFireMode: 1
+  isManualLocked: 0
+  sensor: {fileID: 0}
+  radar: {fileID: 0}
 --- !u!1 &5965033053637196022
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,11 +1029,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e405cc25af8834ba25ebad530fa427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 0
-  detectionAngle: 10
+  detectionRange: 450
+  detectionAngle: 340
   obstaclesMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   debugGizmos: 0
 --- !u!114 &3004690544529515819
 MonoBehaviour:
@@ -914,19 +1047,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b13433d45b8d747a5ef0d960ed01a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shortRangeRadar: 0
-  longRangeRadar: 0
+  shortRangeRadar: 800
+  longRangeRadar: 800
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   fighterMultiplier: 0.5
-  corvetteMultiplier: 0.5
-  destroyerMultiplier: 0.5
-  cruiserMultiplier: 0.5
+  corvetteMultiplier: 1.5
+  destroyerMultiplier: 2
+  cruiserMultiplier: 3
   debugGizmos: 0
+--- !u!1 &7758210834429073312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1621980498832018056}
+  - component: {fileID: 4032955336230287499}
+  m_Layer: 8
+  m_Name: RapidFireCannon (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1621980498832018056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7758210834429073312}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.7, y: -4, z: 21.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8384767778889042147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4032955336230287499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7758210834429073312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f838596db1795f842835cddffcfb2577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 01b2ff6668e98b943a75ac9a4f9912ba, type: 2}
+  <Target>k__BackingField: {fileID: 0}
+  freeFireMode: 1
+  isManualLocked: 0
+  sensor: {fileID: 0}
+  radar: {fileID: 0}
 --- !u!1001 &5565548981872149113
 PrefabInstance:
   m_ObjectHideFlags: 0

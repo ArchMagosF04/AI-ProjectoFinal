@@ -47,9 +47,10 @@ public class DestroyerController : ShipController
 
         IdleState = new ShipST_Idle(this, stateMachine, movement);
         FleeState = new ShipST_Flee(this, stateMachine, movement);
-        //FindTargetState = new ShipST_FindTarget(this, stateMachine, movement);
+        FindTargetState = new ShipST_FindTarget(this, stateMachine, movement);
         PatrolState = new ShipST_Patrol(this, stateMachine, movement);
-        //ChaseState = new ShipST_Chase(this, stateMachine, movement);
+        ChaseState = new ShipST_Chase(this, stateMachine, movement);
+        AttackState = new ShipST_Attack(this, stateMachine, movement);
 
         stateMachine.Initialize(IdleState);
     }

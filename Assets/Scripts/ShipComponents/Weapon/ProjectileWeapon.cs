@@ -14,7 +14,9 @@ public class ProjectileWeapon : Weapon
 
     public override void FireWeapon()
     {
-        if (Time.time < timeOfLastShot + projectileStats.TimeBetweenShots || Target == null) return;
+        if (Target == null || Time.time < timeOfLastShot + projectileStats.TimeBetweenShots) return;
+
+        if (!sensor.CanDetectTarget(Target)) return;
 
         Vector3 direction = (Target.position - transform.position).normalized;
 

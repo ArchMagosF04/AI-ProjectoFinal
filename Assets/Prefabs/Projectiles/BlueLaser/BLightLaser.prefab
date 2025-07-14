@@ -54,8 +54,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 3
+  m_Radius: 0.25
+  m_Height: 2.1
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4572136660792237426
@@ -95,7 +95,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 84
+  m_Constraints: 64
   m_CollisionDetection: 1
 --- !u!1 &5957528156300433185
 GameObject:

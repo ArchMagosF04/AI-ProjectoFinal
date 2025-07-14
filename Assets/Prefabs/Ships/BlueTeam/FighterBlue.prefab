@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82dc3ebaae23ae4387c06e7d4c8168b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 25
+  detectionRange: 20
   avoidForce: 70
   obstacleMask:
     serializedVersion: 2
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b7b45b3ec1ac54c99f5b37bf045122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 20
   deathParticles:

@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [field: SerializeField] public Transform Target { get; protected set; }
 
     [SerializeField] protected bool freeFireMode;
+    [SerializeField] private bool isManualLocked;
 
     [Header("Components")]
     [SerializeField] protected SensorDetection sensor;
@@ -70,6 +71,9 @@ public class Weapon : MonoBehaviour
     public virtual void ToggleFreeFireMode(bool input) 
     {
         freeFireMode = input;
+
+        if (isManualLocked) freeFireMode = false;
+
         Target = null;
     }
 

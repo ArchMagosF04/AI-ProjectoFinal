@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75059fc2fbe4574f9d22cf23b1dd395, type: 3}
+  m_Name: RedPointDefense
+  m_EditorClassIdentifier: 
+  timeBetweenShots: 1
+  damage: 20
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  speed: 200
+  lifeTime: 3
+  bulletPrefab: {fileID: 4572136660792237426, guid: d390d7502b9b91a46803c423ee59d4f3,
+    type: 3}
