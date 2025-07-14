@@ -26,22 +26,22 @@ public class ShipST_FindTarget : BaseState
     {
         base.OnUpdate();
 
-        if (controller.ShipSensor.CanDetectTarget(controller.AttackTarget))
+        if (controller.AttackTarget != null && controller.ShipSensor.CanDetectTarget(controller.AttackTarget))
         {
             stateMachine.ChangeState(controller.ChaseState);
         }
 
         if (pathfind.ProgressChase()) ChangeTargetDest();
-        if (pathfind.ReachedFinalDestination)
+        if (pathfind.ReachedFinalDestination || controller.AttackTarget == null)
         {
             movement.ChangeTarget(null);
             stateMachine.ChangeState(controller.IdleState);
         }
 
 
-        movement.CalculateDesiredDirection();
+        movement.CalculateDesiredDirection(true);
         movement.RotateTowardsDirection(movement.DesiredDirection);
-        movement.MoveShip();
+        movement.MoveShip(true, true);
     }
 
     private void ChangeTargetDest() 

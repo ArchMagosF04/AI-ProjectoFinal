@@ -18,11 +18,13 @@ public class ShipST_AttackChase : ShipST_Attack
     {
         if (controller.AttackTarget == null) stateMachine.ChangeState(controller.IdleState);
 
-        if (controller.AttackTarget != null && !controller.WeaponSensor.CanDetectTarget(controller.AttackTarget)) stateMachine.ChangeState(controller.ChaseState);
+        if (controller.AttackTarget != null && !controller.WeaponSensor.CanDetectTarget(controller.AttackTarget))
+            stateMachine.ChangeState(controller.ChaseState);
 
-        movement.CalculateDesiredDirection();
+        movement.CalculateDesiredDirection(false);
         movement.RotateTowardsDirection(movement.DesiredDirection);
-        if (controller.AttackTarget != null && !controller.WeaponSensor.CheckDistanceWithMultiplier(controller.AttackTarget, 0.4f)) movement.MoveShip();
+        if (controller.AttackTarget != null && !controller.WeaponSensor.CheckDistanceWithMultiplier(controller.AttackTarget, 0.4f))
+            movement.MoveShip(true, true);
 
         controller.FireWeapons();
     }

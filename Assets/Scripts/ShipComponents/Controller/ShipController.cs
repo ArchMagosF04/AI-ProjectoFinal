@@ -8,12 +8,17 @@ public class ShipController : MonoBehaviour
     #region Variables
 
     [Header("Detection")]
-    [field: SerializeField] public SensorDetection ShipSensor { get; protected set; }
-    [field: SerializeField] public Radar ShipRadar { get; protected set; }
+    [SerializeField] protected SensorDetection shipSensor;
+    public SensorDetection ShipSensor => shipSensor;
+    [SerializeField] protected Radar shipRadar;
+    public Radar ShipRadar => shipRadar;
 
-    [Header("Weapons")]
-    [field: SerializeField] public SensorDetection WeaponSensor { get; protected set; }
-    [field: SerializeField] public Radar WeaponRadar { get; protected set; }
+    [Header("Weapon Systems")]
+    [SerializeField] protected SensorDetection weaponSensor;
+    public SensorDetection WeaponSensor => weaponSensor;
+    [SerializeField] protected Radar weaponRadar;
+    public Radar WeaponRadar => weaponRadar;
+
     [SerializeField] private List<Weapon> weapons;
 
     public Transform AttackTarget { get; protected set; }

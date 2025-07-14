@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShipST_Flee : BaseState
 {
     private float maxFleeTime = 10f;
-    private float maxFleeDistance = 700f;
+    private float maxFleeDistance = 850f;
 
     private Vector3 startLocation;
 
@@ -18,6 +18,7 @@ public class ShipST_Flee : BaseState
         base.OnEnter();
         movement.ChangeSteering(ShipMovement.SteeringMode.Flee);
         movement.ChangeTarget(null);
+        movement.Boid.ToggleFlocking(false);
 
         startLocation = controller.transform.position.NoY();
 
@@ -39,13 +40,21 @@ public class ShipST_Flee : BaseState
     {
         base.OnUpdate();
 
+        if (movement.TargetLocation == null) GetTargetToFleeFrom();
+
         if (Time.time > startTime + maxFleeTime || Vector3.Distance(startLocation, controller.transform.position.NoY()) >= maxFleeDistance)
         {
             stateMachine.ChangeState(controller.IdleState);
         }
 
-        movement.CalculateDesiredDirection();
+        movement.CalculateDesiredDirection(false);
         movement.RotateTowardsDirection(movement.DesiredDirection);
-        movement.MoveShip();
+        movement.MoveShip(true, false);
+    }
+
+    public override void OnExit()
+    {
+        base.OnExit();
+        movement.Boid.ToggleFlocking(true);
     }
 }

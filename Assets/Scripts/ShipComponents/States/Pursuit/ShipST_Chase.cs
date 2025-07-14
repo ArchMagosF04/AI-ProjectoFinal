@@ -29,8 +29,8 @@ public class ShipST_Chase : BaseState
             stateMachine.ChangeState(controller.IdleState);
         }
 
-        movement.CalculateDesiredDirection();
+        movement.CalculateDesiredDirection(true);
         movement.RotateTowardsDirection(movement.DesiredDirection);
-        movement.MoveShip();
+        movement.MoveShip(true, true);
     }
 }

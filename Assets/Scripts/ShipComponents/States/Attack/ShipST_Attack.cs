@@ -25,7 +25,7 @@ public class ShipST_Attack : BaseState
 
         if (controller.AttackTarget != null && !controller.WeaponSensor.CanDetectTarget(controller.AttackTarget)) stateMachine.ChangeState(controller.ChaseState);
 
-        movement.CalculateDesiredDirection();
+        movement.CalculateDesiredDirection(false);
         movement.RotateTowardsDirection(movement.DesiredDirection);
         
 

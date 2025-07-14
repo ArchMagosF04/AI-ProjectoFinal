@@ -27,9 +27,9 @@ public class ShipST_Patrol : BaseState
 
         if(pathfindPatrol.ProgressPatrol()) movement.ChangeTarget(pathfindPatrol.TargetLocation);
 
-        movement.CalculateDesiredDirection();
+        movement.CalculateDesiredDirection(true);
         movement.RotateTowardsDirection(movement.DesiredDirection);
-        movement.MoveShip();
+        movement.MoveShip(true, true);
     }
 
     public override void DoChecks()

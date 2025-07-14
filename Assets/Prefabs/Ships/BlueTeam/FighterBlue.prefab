@@ -130,7 +130,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -544,7 +544,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -745,7 +745,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -828,6 +828,7 @@ GameObject:
   - component: {fileID: 3092397360758556216}
   - component: {fileID: 2802236473852316594}
   - component: {fileID: 5447292734758641134}
+  - component: {fileID: 5340822077301707234}
   - component: {fileID: 2331237122043361709}
   - component: {fileID: 5907477943959421007}
   - component: {fileID: 8717539661432261650}
@@ -893,10 +894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c94d7e34ee23b42a8043d24b9b19a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ShipSensor>k__BackingField: {fileID: 623519844703539773}
-  <ShipRadar>k__BackingField: {fileID: 2695349762365682861}
-  <WeaponSensor>k__BackingField: {fileID: 4898255740117168229}
-  <WeaponRadar>k__BackingField: {fileID: 4239720792924519650}
+  shipSensor: {fileID: 623519844703539773}
+  shipRadar: {fileID: 2695349762365682861}
+  weaponSensor: {fileID: 4898255740117168229}
+  weaponRadar: {fileID: 4239720792924519650}
   weapons:
   - {fileID: 5968890030237726607}
   - {fileID: 4306166920040848145}
@@ -918,6 +919,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 136
   DebugGizmos: 0
+--- !u!114 &5340822077301707234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785521419837897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b3cf2c756c0ff459f6c28850f86aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoidPriority: 4
+  separationRadius: 15
+  cohesionRadius: 25
+  alignmentRadius: 40
+  teamLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  separationWeight: 1
+  cohesionWeight: 1
+  alignmentWeight: 1
+  DebugGizmos: 1
 --- !u!114 &2331237122043361709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,7 +963,7 @@ MonoBehaviour:
   closeEnoughDist: 0
   debugTargetFuturePos: 0
   measureDistance: 0
-  distanceToMeasure: 0
+  distanceToMeasure: 55
 --- !u!114 &5907477943959421007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -996,6 +1020,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   currentPath: []
 --- !u!114 &2835844405201583175
 MonoBehaviour:
@@ -1012,7 +1037,9 @@ MonoBehaviour:
   maxHealth: 100
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 20
-  deathParticles: []
+  deathParticles:
+  - {fileID: 6564364327870105568, guid: eeedce4775022544f995666bc4bc96f6, type: 3}
+  - {fileID: 6527638195966634242, guid: 360c1b4f521488549afe5859dfd1cf41, type: 3}
 --- !u!1 &7475763605553232997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1170,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3

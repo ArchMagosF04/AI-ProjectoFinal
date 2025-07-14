@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ObstacleAvoidance))]
+[RequireComponent(typeof(ObstacleAvoidance), typeof(Flocking))]
 public class ShipMovement : MonoBehaviour
 {
     public enum SteeringMode { Seek, Pursuit, Flee, None}
@@ -34,7 +34,9 @@ public class ShipMovement : MonoBehaviour
     public Vector3 MoveVector => moveSpeed * DesiredDirection.normalized;
 
     //Components
+    public Flocking Boid { get; private set; }
     private ObstacleAvoidance obstacleAvoidance;
+    
 
     //Steerings
     private Steer_Seek seek;
@@ -44,22 +46,17 @@ public class ShipMovement : MonoBehaviour
     private void Awake()
     {
         obstacleAvoidance = GetComponent<ObstacleAvoidance>();
+        Boid = GetComponent<Flocking>();
         DesiredDirection = Vector3.zero;
         seek = new Steer_Seek(transform, TargetLocation);
         pursuit = new Steer_Pursuit(transform, TargetLocation, timePrediction, closeEnoughDist);
         flee = new Steer_Flee(transform, TargetLocation);
     }
 
-    private void Start()
-    {
-        
-    }
-
-    public void CalculateDesiredDirection()
+    public void CalculateDesiredDirection(bool useAligment)
     {
         Vector3 dir = Vector3.zero;
 
-        //SteeringBehaviourModifier <--- TODO
         switch (currentMode)
         {
             case SteeringMode.Seek:
@@ -72,8 +69,13 @@ public class ShipMovement : MonoBehaviour
                 dir = flee.MoveDirection();
                 break;
             default:
-                dir = Vector3.zero;
                 break;
+        }
+
+        if (useAligment && currentMode != SteeringMode.Flee)
+        {
+            dir += Boid.CalculateAlignment();
+            dir /= 2;
         }
 
         DesiredDirection = dir;
@@ -88,12 +90,16 @@ public class ShipMovement : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
     }
 
-    public void MoveShip()
+    public void MoveShip(bool useSeparation, bool useCohesion)
     {
         Vector3 moveVector = transform.forward * moveSpeed * Time.deltaTime;
         Vector3 avoidance = obstacleAvoidance.Avoid();
 
         transform.position += avoidance;
+
+        if (useSeparation) transform.position += Boid.CalculateSeparation();
+
+        if (useCohesion) transform.position += Boid.CalculateCohesion();
 
         if (DesiredDirection == Vector3.zero) return;
 
