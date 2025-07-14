@@ -25,13 +25,13 @@ public class CorvetteController : ShipController
     protected override void OnEnable()
     {
         base.OnEnable();
-        //ShipHealth.OnLowHealth += FleeOnLowHealth;
+        ShipHealth.OnLowHealth += FleeOnLowHealth;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        //ShipHealth.OnLowHealth -= FleeOnLowHealth;
+        ShipHealth.OnLowHealth -= FleeOnLowHealth;
     }
 
     #endregion
@@ -46,8 +46,8 @@ public class CorvetteController : ShipController
         base.SetUpStateMachine();
 
         IdleState = new ShipST_Idle(this, stateMachine, movement);
-        //FleeState = new ShipST_Flee(this, stateMachine, movement);
-        //FindTargetState = new ShipST_FindTarget(this, stateMachine, movement);
+        FleeState = new ShipST_Flee(this, stateMachine, movement);
+        FindTargetState = new ShipST_FindTarget(this, stateMachine, movement);
         PatrolState = new ShipST_Patrol(this, stateMachine, movement);
         //ChaseState = new ShipST_Chase(this, stateMachine, movement);
 

@@ -8,7 +8,7 @@ public class HealthController : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private int maxHealth;
     [field: SerializeField] public int CurrentHealth { get; private set; }
-    [SerializeField, Range(1f, 100f)] private int lowHealthThreshold;
+    [SerializeField, Range(1f, 100f)] private float lowHealthThreshold;
 
     [Header("Particles")]
     [SerializeField] private GameObject[] deathParticles;

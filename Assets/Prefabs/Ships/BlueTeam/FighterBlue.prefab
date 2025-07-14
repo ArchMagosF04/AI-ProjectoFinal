@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f838596db1795f842835cddffcfb2577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   sensor: {fileID: 0}
   radar: {fileID: 0}
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f838596db1795f842835cddffcfb2577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   sensor: {fileID: 0}
   radar: {fileID: 0}
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shortRangeRadar: 1000
-  longRangeRadar: 3000
+  longRangeRadar: 1000
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -832,9 +832,10 @@ GameObject:
   - component: {fileID: 5907477943959421007}
   - component: {fileID: 8717539661432261650}
   - component: {fileID: 9143808234482505935}
+  - component: {fileID: 2835844405201583175}
   m_Layer: 8
   m_Name: FighterBlue
-  m_TagString: Untagged
+  m_TagString: BlueTeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -894,6 +895,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ShipSensor>k__BackingField: {fileID: 623519844703539773}
   <ShipRadar>k__BackingField: {fileID: 2695349762365682861}
+  <WeaponSensor>k__BackingField: {fileID: 4898255740117168229}
+  <WeaponRadar>k__BackingField: {fileID: 4239720792924519650}
+  weapons:
+  - {fileID: 5968890030237726607}
+  - {fileID: 4306166920040848145}
 --- !u!114 &5447292734758641134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,9 +933,9 @@ MonoBehaviour:
   currentMode: 0
   <TargetLocation>k__BackingField: {fileID: 0}
   rotationSpeed: 500
-  moveSpeed: 50
+  moveSpeed: 65
   turnThreshold: -1
-  timePrediction: 0
+  timePrediction: 0.1
   closeEnoughDist: 0
   debugTargetFuturePos: 0
   measureDistance: 0
@@ -991,6 +997,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   currentPath: []
+--- !u!114 &2835844405201583175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785521419837897340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b7b45b3ec1ac54c99f5b37bf045122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  <CurrentHealth>k__BackingField: 0
+  lowHealthThreshold: 20
+  deathParticles: []
 --- !u!1 &7475763605553232997
 GameObject:
   m_ObjectHideFlags: 0

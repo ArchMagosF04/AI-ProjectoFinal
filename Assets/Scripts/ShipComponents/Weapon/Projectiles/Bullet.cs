@@ -32,7 +32,6 @@ public class Bullet : MonoBehaviour
         {
             if (other.TryGetComponent<HealthController>(out HealthController health))
             {
-                Debug.Log("TargetHit");
                 health.TakeDamage(damage);
                 Destroy(gameObject);
             }

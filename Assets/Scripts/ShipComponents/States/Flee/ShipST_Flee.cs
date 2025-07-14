@@ -17,6 +17,7 @@ public class ShipST_Flee : BaseState
     {
         base.OnEnter();
         movement.ChangeSteering(ShipMovement.SteeringMode.Flee);
+        movement.ChangeTarget(null);
 
         startLocation = controller.transform.position.NoY();
 

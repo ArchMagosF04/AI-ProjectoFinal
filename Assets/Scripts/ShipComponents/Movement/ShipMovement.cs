@@ -119,7 +119,7 @@ public class ShipMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (debugTargetFuturePos)
+        if (debugTargetFuturePos && pursuit != null)
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(pursuit.FuturePos, 15f);
