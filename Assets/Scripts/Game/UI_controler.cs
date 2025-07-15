@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class UIControler : MonoBehaviour
 {
      private bool isDoubleSpeed = false;
+     private bool isPused = false;
 
-     private int speedMultiplier = 4; 
+     private float speedMultiplier = 4f; 
 
 
     public void BacktoMainMenu()
@@ -27,19 +28,51 @@ public class UIControler : MonoBehaviour
         Debug.Log("Exit");
     }
 
-    public void Turbo()
+     public void Pause()
     {
-        if (isDoubleSpeed)
+        if (isPused)
         {
-            Time.timeScale = 1f; // Velocidad normal
-            isDoubleSpeed = false;
-            Debug.Log("Normal Speed on");
+            if (isDoubleSpeed == true)
+            {
+                Time.timeScale = speedMultiplier;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
+            isPused = false;
+            Debug.Log("Game on");
         }
         else
         {
-            Time.timeScale = speedMultiplier; // Velocidad doble
-            isDoubleSpeed = true;
-            Debug.Log("Speed x2");
+            Time.timeScale = 0f;
+            isPused = true;
+            Debug.Log("Pause");
         }
+    }
+
+    public void Turbo()
+    {
+        if (isPused == false)
+        {
+            if (isDoubleSpeed)
+            {
+                Time.timeScale = 1f;
+                isDoubleSpeed = false;
+                Debug.Log("Normal Speed on");
+            }
+            else
+            {
+                Time.timeScale = speedMultiplier;
+                isDoubleSpeed = true;
+                Debug.Log("Speed x2");
+            }
+
+        }
+        else
+        {
+            return;
+        }
+       
     }
 }
