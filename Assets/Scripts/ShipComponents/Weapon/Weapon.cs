@@ -14,8 +14,10 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool isManualLocked;
 
     [Header("Components")]
-    [SerializeField] protected SensorDetection sensor;
-    [SerializeField] protected Radar radar;
+    [SerializeField] protected SoundLibraryObject sounds;
+
+    protected SensorDetection sensor;
+    protected Radar radar;
 
     //Other
     protected float timeOfLastShot;

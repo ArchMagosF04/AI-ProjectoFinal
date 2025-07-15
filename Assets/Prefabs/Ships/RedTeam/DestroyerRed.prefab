@@ -325,8 +325,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7fa465d2bb63e48418f3f98c1b200810, type: 2}
 --- !u!1 &1126691456406085103
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +676,7 @@ MonoBehaviour:
   moveSpeed: 50
   turnThreshold: 0
   timePrediction: 0.2
-  closeEnoughDist: 0
+  closeEnoughDist: 150
   debugTargetFuturePos: 0
   measureDistance: 0
   distanceToMeasure: 65
@@ -752,6 +751,7 @@ MonoBehaviour:
   healthRegen: 0
   healthRegenTick: 0
   deathParticles: []
+  sounds: {fileID: 11400000, guid: 7372304bf8ec6b84b9e2b434511a583c, type: 2}
 --- !u!1 &3886653859587885624
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,8 +880,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7fa465d2bb63e48418f3f98c1b200810, type: 2}
 --- !u!1 &4500029347744875649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,8 +1036,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 0
   isManualLocked: 1
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: e53e39eed55abe24ebfa0191835e2ba5, type: 2}
 --- !u!1 &5095862530611833950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,8 +1085,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7fa465d2bb63e48418f3f98c1b200810, type: 2}
 --- !u!1 &5155795700605985534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,8 +1521,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 0
   isManualLocked: 1
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: e53e39eed55abe24ebfa0191835e2ba5, type: 2}
 --- !u!1 &6240393494084710724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,8 +1878,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 0
   isManualLocked: 1
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: e53e39eed55abe24ebfa0191835e2ba5, type: 2}
 --- !u!1 &8110235727845964231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,8 +2164,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7fa465d2bb63e48418f3f98c1b200810, type: 2}
 --- !u!1001 &664302068631802246
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -38,6 +38,7 @@ public class BeamWeapon : Weapon
             {
                 health.TakeDamage(beamStats.Damage);
                 timeOfLastShot = Time.time;
+                if (sounds != null) SoundManager.Instance.CreateSound().WithSoundData(sounds.soundData[0]).WithPosition(transform.position).WithRandomPitch().Play();
                 StartCoroutine(DrawLine());
             }
         }

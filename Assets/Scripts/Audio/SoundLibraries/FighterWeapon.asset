@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3503be3be65cd944ea9072ada745044c, type: 3}
+  m_Name: FighterWeapon
+  m_EditorClassIdentifier: 
+  soundData:
+  - Id: Weapon
+    Clip: {fileID: 8300000, guid: e918d8dd84d78da499fc6138726b3b74, type: 3}
+    MixerGroup: {fileID: 6292121110679369666, guid: 81f50e9ccc1f9824184721b21b8e0e5b,
+      type: 2}
+    Volume: 0.3
+    Loop: 0
+    PlayOnAwake: 0
+    IsFrequent: 0

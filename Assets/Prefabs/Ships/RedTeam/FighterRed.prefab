@@ -435,8 +435,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: e3a97e27030781d47ac8fe45bc7e12ed, type: 2}
 --- !u!1 &5107662300292380133
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,8 +484,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: e3a97e27030781d47ac8fe45bc7e12ed, type: 2}
 --- !u!1 &6882402299513720096
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +632,7 @@ MonoBehaviour:
   moveSpeed: 65
   turnThreshold: -1
   timePrediction: 0.1
-  closeEnoughDist: 0
+  closeEnoughDist: 50
   debugTargetFuturePos: 0
   measureDistance: 0
   distanceToMeasure: 0
@@ -711,6 +709,7 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 4247564428006709776, guid: 3005f70c211567b4696bc90e927f103b, type: 3}
   - {fileID: 6527638195966634242, guid: 360c1b4f521488549afe5859dfd1cf41, type: 3}
+  sounds: {fileID: 11400000, guid: b16e182dd8dc951439a571da4162d20a, type: 2}
 --- !u!1001 &2869471020478234593
 PrefabInstance:
   m_ObjectHideFlags: 0

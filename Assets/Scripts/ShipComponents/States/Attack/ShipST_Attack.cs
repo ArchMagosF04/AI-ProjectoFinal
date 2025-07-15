@@ -61,6 +61,7 @@ public class ShipST_Attack : BaseState
         {
             movement.ChangeTarget(targetId.Transform);
             controller.SelectAttackTarget(targetId.Transform);
+            controller.AimWeaponsAtTarget();
 
             return true;
         }

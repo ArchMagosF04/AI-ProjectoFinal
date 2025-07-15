@@ -771,8 +771,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 0
   isManualLocked: 1
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 681755f52df0b8149b7bc149133869d7, type: 2}
 --- !u!1 &2377375353365196579
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,8 +820,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 0
   isManualLocked: 1
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 681755f52df0b8149b7bc149133869d7, type: 2}
 --- !u!1 &2787608017045873740
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,8 +976,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: ecdcc762c9118a9428550af303f5b6f2, type: 2}
 --- !u!1 &3353985772046835053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,8 +1025,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 0
   isManualLocked: 1
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 681755f52df0b8149b7bc149133869d7, type: 2}
 --- !u!1 &3527233183572463601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,8 +1074,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 0
   isManualLocked: 1
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 681755f52df0b8149b7bc149133869d7, type: 2}
 --- !u!1 &4683475722090432740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,8 +1123,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 907c04dd4ea3829479d6e5bd6b482e94, type: 2}
 --- !u!1 &4902912111253740208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1278,7 @@ MonoBehaviour:
   moveSpeed: 30
   turnThreshold: 0
   timePrediction: 0.3
-  closeEnoughDist: 0
+  closeEnoughDist: 250
   debugTargetFuturePos: 0
   measureDistance: 0
   distanceToMeasure: 90
@@ -1359,6 +1353,7 @@ MonoBehaviour:
   healthRegen: 0
   healthRegenTick: 0
   deathParticles: []
+  sounds: {fileID: 11400000, guid: 9147d3d3c050f50439421117cb80c950, type: 2}
 --- !u!1 &4952363031275726275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,8 +1482,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 907c04dd4ea3829479d6e5bd6b482e94, type: 2}
 --- !u!1 &6381686233414501096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,8 +1714,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: ecdcc762c9118a9428550af303f5b6f2, type: 2}
 --- !u!1 &7157191321047114437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,8 +1870,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: ecdcc762c9118a9428550af303f5b6f2, type: 2}
 --- !u!1 &7194936749411158894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,8 +1919,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 907c04dd4ea3829479d6e5bd6b482e94, type: 2}
 --- !u!1 &7814204383210501387
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,8 +2370,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 907c04dd4ea3829479d6e5bd6b482e94, type: 2}
 --- !u!1 &8846794966394447796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,8 +2526,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: ecdcc762c9118a9428550af303f5b6f2, type: 2}
 --- !u!1001 &1585493728140534316
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -302,6 +302,7 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 3872354423513460817, guid: d06c0b0261b9d8c469b767363cc2f50b, type: 3}
   - {fileID: 581771736156101043, guid: c9d3445ead5fe884db56f29ce3ea54ae, type: 3}
+  sounds: {fileID: 11400000, guid: 7372304bf8ec6b84b9e2b434511a583c, type: 2}
 --- !u!1 &1063368104775203918
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,8 +988,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7c93ae1a4572a8b4a873bff363ebdf3c, type: 2}
 --- !u!1 &5965033053637196022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,8 +1113,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7c93ae1a4572a8b4a873bff363ebdf3c, type: 2}
 --- !u!1001 &5565548981872149113
 PrefabInstance:
   m_ObjectHideFlags: 0

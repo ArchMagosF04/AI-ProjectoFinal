@@ -325,8 +325,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7fa465d2bb63e48418f3f98c1b200810, type: 2}
 --- !u!1 &1367492169390847143
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,8 +454,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7fa465d2bb63e48418f3f98c1b200810, type: 2}
 --- !u!1 &2074407709318996746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,8 +1624,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 0
   isManualLocked: 1
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: e53e39eed55abe24ebfa0191835e2ba5, type: 2}
 --- !u!120 &4273949670707737978
 LineRenderer:
   serializedVersion: 2
@@ -1881,10 +1878,10 @@ MonoBehaviour:
   moveSpeed: 50
   turnThreshold: 0
   timePrediction: 0.2
-  closeEnoughDist: 0
+  closeEnoughDist: 150
   debugTargetFuturePos: 0
   measureDistance: 0
-  distanceToMeasure: 0
+  distanceToMeasure: 150
 --- !u!114 &7935321096733083913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1956,6 +1953,7 @@ MonoBehaviour:
   healthRegen: 0
   healthRegenTick: 0
   deathParticles: []
+  sounds: {fileID: 11400000, guid: 7372304bf8ec6b84b9e2b434511a583c, type: 2}
 --- !u!1 &6908114266717248019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,8 +2203,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7fa465d2bb63e48418f3f98c1b200810, type: 2}
 --- !u!1 &9026907879649847551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,8 +2252,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
   isManualLocked: 0
-  sensor: {fileID: 0}
-  radar: {fileID: 0}
+  sounds: {fileID: 11400000, guid: 7fa465d2bb63e48418f3f98c1b200810, type: 2}
 --- !u!1001 &7036851110230740931
 PrefabInstance:
   m_ObjectHideFlags: 0

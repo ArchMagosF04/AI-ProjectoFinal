@@ -16,6 +16,9 @@ public class HealthController : MonoBehaviour
 
     [Header("Particles")]
     [SerializeField] private GameObject[] deathParticles;
+
+    [Header("Sound")]
+    [SerializeField] private SoundLibraryObject sounds;
     
     //Events
     public Action OnDeath;
@@ -89,7 +92,9 @@ public class HealthController : MonoBehaviour
         {
             Instantiate(deathParticles[i], transform.position, Quaternion.identity);
         }
-        
+
+        if (sounds != null) SoundManager.Instance.CreateSound().WithSoundData(sounds.soundData[0]).WithPosition(transform.position).WithRandomPitch().Play();
+
         OnDeath?.Invoke();
         Destroy(gameObject);
     }
