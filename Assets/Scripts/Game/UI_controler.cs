@@ -8,7 +8,7 @@ public class UIControler : MonoBehaviour
 {
      private bool isDoubleSpeed = false;
 
-     private int speedMultiplier = 2; 
+     private int speedMultiplier = 4; 
 
 
     public void BacktoMainMenu()
