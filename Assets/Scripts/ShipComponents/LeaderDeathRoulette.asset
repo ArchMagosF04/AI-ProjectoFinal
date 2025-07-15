@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 219948adafeaad34386acb951a520411, type: 3}
+  m_Name: LeaderDeathRoulette
+  m_EditorClassIdentifier: 
+  inspireBuff: 0.2
+  keepFighting: 0.6
+  fleeInTerror: 0.2
+  upperHealthThreshold: 0.8
+  lowerHealthThreshold: 0.3
+  inspireHighMod: 2.5
+  fightHighMod: 0.66
+  fleeHighMod: 0.5
+  inspireLowMod: 0.5
+  fightLowMod: 0.66
+  fleeLowMod: 2.5

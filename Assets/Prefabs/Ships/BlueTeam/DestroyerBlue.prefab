@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2047484534732193562}
   - component: {fileID: 4498774460195790378}
   - component: {fileID: 8481441376960096765}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 4846444490500083778}
   - component: {fileID: 6539487059167100766}
   - component: {fileID: 8450708530860361288}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,10 +768,10 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
-  fighterMultiplier: 2
-  corvetteMultiplier: 0.5
-  destroyerMultiplier: 1
-  cruiserMultiplier: 1
+  fighterMultiplier: 3
+  corvetteMultiplier: 1
+  destroyerMultiplier: 0.5
+  cruiserMultiplier: 0.5
   debugGizmos: 0
 --- !u!1 &2869952042434491226
 GameObject:
@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 8272996709143422843}
   - component: {fileID: 8084175266490123370}
   - component: {fileID: 4273949670707737978}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BeamCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1819,6 +1819,9 @@ MonoBehaviour:
   weaponRadar: {fileID: 8450708530860361288}
   weapons:
   - {fileID: 8084175266490123370}
+  leaderRoulette: {fileID: 11400000, guid: 2e89544f79ac2ce46b99882985c54f59, type: 2}
+  currentStateName: 
+  <AttackTarget>k__BackingField: {fileID: 0}
 --- !u!114 &7425815241134160912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1835,7 +1838,7 @@ MonoBehaviour:
   avoidForce: 60
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   DebugGizmos: 0
 --- !u!114 &1590527635084850176
 MonoBehaviour:
@@ -1876,7 +1879,7 @@ MonoBehaviour:
   <TargetLocation>k__BackingField: {fileID: 0}
   rotationSpeed: 90
   moveSpeed: 50
-  turnThreshold: 0.5
+  turnThreshold: 0
   timePrediction: 0.2
   closeEnoughDist: 0
   debugTargetFuturePos: 0
@@ -1950,6 +1953,8 @@ MonoBehaviour:
   maxHealth: 1500
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 15
+  healthRegen: 0
+  healthRegenTick: 0
   deathParticles: []
 --- !u!1 &6908114266717248019
 GameObject:

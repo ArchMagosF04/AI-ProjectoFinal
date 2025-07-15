@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2581572254960280562}
   - component: {fileID: 668413078398734024}
   - component: {fileID: 8858644214881133477}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3739943498135840614}
   - component: {fileID: 7554366672514900432}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PointDefenseTurret (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -615,6 +615,9 @@ MonoBehaviour:
   - {fileID: 8744652079188460792}
   - {fileID: 1801987368484786886}
   - {fileID: 8580423368527176391}
+  leaderRoulette: {fileID: 11400000, guid: 2e89544f79ac2ce46b99882985c54f59, type: 2}
+  currentStateName: 
+  <AttackTarget>k__BackingField: {fileID: 0}
 --- !u!114 &3448100152085758328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,7 +634,7 @@ MonoBehaviour:
   avoidForce: 60
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   DebugGizmos: 0
 --- !u!114 &5954122268535090952
 MonoBehaviour:
@@ -672,7 +675,7 @@ MonoBehaviour:
   <TargetLocation>k__BackingField: {fileID: 0}
   rotationSpeed: 90
   moveSpeed: 50
-  turnThreshold: 0.5
+  turnThreshold: 0
   timePrediction: 0.2
   closeEnoughDist: 0
   debugTargetFuturePos: 0
@@ -746,6 +749,8 @@ MonoBehaviour:
   maxHealth: 1500
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 15
+  healthRegen: 0
+  healthRegenTick: 0
   deathParticles: []
 --- !u!1 &3886653859587885624
 GameObject:
@@ -758,7 +763,7 @@ GameObject:
   - component: {fileID: 6837488314703691408}
   - component: {fileID: 9029730643184139125}
   - component: {fileID: 8054790281680701122}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PointDefenseWeapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2451193797706207121}
   - component: {fileID: 4411873520499243251}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PointDefenseTurret
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -888,7 +893,7 @@ GameObject:
   - component: {fileID: 7616225595072478145}
   - component: {fileID: 2835305074920296471}
   - component: {fileID: 8580423368527176391}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TripletBeamCannon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1044,7 +1049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2692754770866319656}
   - component: {fileID: 547720773657054229}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PointDefenseTurret (3)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1095,7 +1100,7 @@ GameObject:
   - component: {fileID: 3459521208491823720}
   - component: {fileID: 1887333689753463447}
   - component: {fileID: 7153802490655961572}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1375,7 +1380,7 @@ GameObject:
   - component: {fileID: 1891083074697376434}
   - component: {fileID: 5360697914803237837}
   - component: {fileID: 1801987368484786886}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TripletBeamCannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1733,7 +1738,7 @@ GameObject:
   - component: {fileID: 8822292839478136672}
   - component: {fileID: 576156498884963986}
   - component: {fileID: 8744652079188460792}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TripletBeamCannon
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -2126,7 +2131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7678998966219800030}
   - component: {fileID: 3576498086060903370}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PointDefenseTurret (2)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}

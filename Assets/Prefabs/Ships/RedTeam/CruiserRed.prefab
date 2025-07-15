@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1495031590620546959}
   - component: {fileID: 927149683454821850}
   - component: {fileID: 6987935672770904407}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3812434444851520848}
   - component: {fileID: 6237547502556816192}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HeavyCannon
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -783,7 +783,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7790571114587425223}
   - component: {fileID: 6618759455382049287}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HeavyCannon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -834,7 +834,7 @@ GameObject:
   - component: {fileID: 4322608536144775338}
   - component: {fileID: 7033346357063565764}
   - component: {fileID: 559395987775203749}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MediumBeamCannon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -990,7 +990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1418844549906815426}
   - component: {fileID: 4343961045156036831}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HeavyCannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1040,7 +1040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 626190082251025086}
   - component: {fileID: 5752475010453428871}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HeavyCannon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6237342407446650905}
   - component: {fileID: 5977170425232151687}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MediumCannon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1222,6 +1222,9 @@ MonoBehaviour:
   - {fileID: 6618759455382049287}
   - {fileID: 4343961045156036831}
   - {fileID: 5752475010453428871}
+  leaderRoulette: {fileID: 11400000, guid: 2e89544f79ac2ce46b99882985c54f59, type: 2}
+  currentStateName: 
+  <AttackTarget>k__BackingField: {fileID: 0}
 --- !u!114 &108957747143894757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,7 +1241,7 @@ MonoBehaviour:
   avoidForce: 40
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   DebugGizmos: 0
 --- !u!114 &228868975047108837
 MonoBehaviour:
@@ -1353,6 +1356,8 @@ MonoBehaviour:
   maxHealth: 3500
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 15
+  healthRegen: 0
+  healthRegenTick: 0
   deathParticles: []
 --- !u!1 &4952363031275726275
 GameObject:
@@ -1365,7 +1370,7 @@ GameObject:
   - component: {fileID: 5037035714806802450}
   - component: {fileID: 49553827661064281}
   - component: {fileID: 7696100568061983875}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: FrontalBeams
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,7 +1449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9180214751864874998}
   - component: {fileID: 38260071355304565}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MediumCannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1495,7 +1500,7 @@ GameObject:
   - component: {fileID: 6823434408702091215}
   - component: {fileID: 1511429368263493173}
   - component: {fileID: 8446912006421262136}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1576,7 @@ GameObject:
   - component: {fileID: 7386437336936168299}
   - component: {fileID: 1868817568982765208}
   - component: {fileID: 2089301604863363114}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MediumBeamCannon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1728,7 +1733,7 @@ GameObject:
   - component: {fileID: 1298359335648654344}
   - component: {fileID: 2887196970741890580}
   - component: {fileID: 4180227235449836537}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MediumBeamCannon
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1884,7 +1889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6581533345388457841}
   - component: {fileID: 2761988463591552832}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MediumCannon
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -2336,7 +2341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7706730650347926916}
   - component: {fileID: 2342619394409931611}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MediumCannon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -2387,7 +2392,7 @@ GameObject:
   - component: {fileID: 8048943721928407295}
   - component: {fileID: 5270327141929087499}
   - component: {fileID: 5419418557365488943}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MediumBeamCannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}

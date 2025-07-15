@@ -20,7 +20,13 @@ public class ShipController : MonoBehaviour
 
     [SerializeField] private List<Weapon> weapons;
 
-    public Transform AttackTarget { get; protected set; }
+    [Header("Scriptable Objects")]
+    [SerializeField] private LeaderDeathRoulette leaderRoulette;
+
+    [Header("Debug Info")]
+    [SerializeField] private string currentStateName;
+    [field: SerializeField] public Transform AttackTarget { get; protected set; }
+    
 
     //Components
     public ShipID ShipID { get; protected set; }
@@ -62,11 +68,11 @@ public class ShipController : MonoBehaviour
 
         if (gameObject.tag == "RedTeam")
         {
-            GameManager.Instance.RedAdmiral.OnDeath += OnLeaderDeath;
+            if (GameManager.Instance.RedAdmiral != null) GameManager.Instance.RedAdmiral.OnDeath += OnLeaderDeath;
         }
         else if (gameObject.tag == "BlueTeam")
         {
-            GameManager.Instance.BlueAdmiral.OnDeath += OnLeaderDeath;
+            if (GameManager.Instance.BlueAdmiral != null) GameManager.Instance.BlueAdmiral.OnDeath += OnLeaderDeath;
         }
     }
 
@@ -87,14 +93,15 @@ public class ShipController : MonoBehaviour
     protected virtual void OnDisable() 
     {
         ShipHealth.OnLowHealth -= FleeOnLowHealth;
+        stateMachine.OnStateChange += GetStateName;
 
         if (gameObject.tag == "RedTeam")
         {
-            GameManager.Instance.RedAdmiral.OnDeath -= OnLeaderDeath;
+            if (GameManager.Instance.RedAdmiral != null) GameManager.Instance.RedAdmiral.OnDeath -= OnLeaderDeath;
         }
         else if (gameObject.tag == "BlueTeam")
         {
-            GameManager.Instance.BlueAdmiral.OnDeath -= OnLeaderDeath;
+            if (GameManager.Instance.BlueAdmiral != null) GameManager.Instance.BlueAdmiral.OnDeath -= OnLeaderDeath;
         }
     }
 
@@ -103,7 +110,10 @@ public class ShipController : MonoBehaviour
     protected virtual void SetUpStateMachine()
     {
         stateMachine = new StateMachine();
+        stateMachine.OnStateChange += GetStateName;
     }
+
+    protected virtual void GetStateName() => currentStateName = stateMachine.CurrentState.GetType().ToString();
 
     protected virtual void SetShipID() { }
 
@@ -123,27 +133,24 @@ public class ShipController : MonoBehaviour
 
     public virtual void OnLeaderDeath()
     {
-        float inspireBuff = 0.20f;
-        float keepFighting = 0.60f;
-        float fleeInTerror = 0.20f;
+        float inspireBuff = leaderRoulette.InspireBuff;
+        float keepFighting = leaderRoulette.KeepFighting;
+        float fleeInTerror = leaderRoulette.FleeInTerror;
 
         int currentHealth = ShipHealth.CurrentHealth;
         int maxHealth = ShipHealth.MaxHealth;
 
-        float upperThreshold = 0.8f;
-        float lowerThreshold = 0.3f;
-
-        if (currentHealth >= maxHealth * upperThreshold)
+        if (currentHealth >= maxHealth * leaderRoulette.UpperHealthThreshold)
         {
-            inspireBuff *= 2.5f;
-            keepFighting *= 0.66f;
-            fleeInTerror *= 0.5f;
+            inspireBuff *= leaderRoulette.InspireHighMod;
+            keepFighting *= leaderRoulette.FightHighMod;
+            fleeInTerror *= leaderRoulette.InspireHighMod;
         }
-        else if (currentHealth <= maxHealth * lowerThreshold)
+        else if (currentHealth <= maxHealth * leaderRoulette.LowerHealthThreshold)
         {
-            inspireBuff *= 0.5f;
-            keepFighting *= 0.66f;
-            fleeInTerror *= 2.5f;
+            inspireBuff *= leaderRoulette.InspireLowMod;
+            keepFighting *= leaderRoulette.FightLowMod;
+            fleeInTerror *= leaderRoulette.FleeLowMod;
         }
 
         float total = inspireBuff + keepFighting + fleeInTerror;
