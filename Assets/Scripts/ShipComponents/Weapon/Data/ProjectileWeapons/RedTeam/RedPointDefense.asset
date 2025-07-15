@@ -20,6 +20,6 @@ MonoBehaviour:
   impactParticle: {fileID: 9036927272481728596, guid: 2c99cb5b0b1a7a049aa9742d6a508828,
     type: 3}
   speed: 200
-  lifeTime: 3
+  lifeTime: 2
   bulletPrefab: {fileID: 4572136660792237426, guid: d390d7502b9b91a46803c423ee59d4f3,
     type: 3}

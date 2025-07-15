@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Bits: 256
   impactParticle: {fileID: 5490031594669437675, guid: 05b007eef51da724b95d944e4e8caf32,
     type: 3}
-  speed: 160
-  lifeTime: 4
+  speed: 200
+  lifeTime: 1.5
   bulletPrefab: {fileID: 6719660207299847085, guid: 3f3c93ec2de50b3468373d7a882fb03a,
     type: 3}
