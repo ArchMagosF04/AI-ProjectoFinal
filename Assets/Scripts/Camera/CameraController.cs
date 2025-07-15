@@ -56,7 +56,7 @@ public class CameraController : MonoBehaviour
         else speedMultiplier = 1f;
 
         Vector3 movement = new Vector3(input.MoveInput.x, input.ElevationInput, input.MoveInput.y);
-        transform.Translate(movement * speed * speedMultiplier * Time.deltaTime);
+        transform.Translate(movement * speed * speedMultiplier * Time.unscaledDeltaTime);
     }
 
     private void CameraRotation() //Rotates the camera.
