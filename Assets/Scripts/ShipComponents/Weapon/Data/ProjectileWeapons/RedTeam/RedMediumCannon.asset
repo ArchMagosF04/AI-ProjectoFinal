@@ -17,6 +17,8 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 256
+  impactParticle: {fileID: 1681492167220961024, guid: f4b3087b6343d4045a754234215cc127,
+    type: 3}
   speed: 100
   lifeTime: 5
   bulletPrefab: {fileID: 3556308445838063110, guid: 82eb4960dfb1a0946a9143150722d9bf,

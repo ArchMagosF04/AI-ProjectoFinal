@@ -21,6 +21,26 @@ public class PathfindPatrol : MonoBehaviour
     private void Awake()
     {
         aStar = GetComponent<AStarComponent>();
+        
+    }
+
+    private void Start()
+    {
+        if (nodeCircuit.Count == 0)
+        {
+            CreateRandomPatrol();
+        }
+    }
+
+    private void CreateRandomPatrol()
+    {
+        while (nodeCircuit.Count < 5)
+        {
+            int randomNode = Random.Range(0, AStarManager.Instance.WorldNodes.Count);
+
+            if (!AStarManager.Instance.WorldNodes[randomNode].IsBlocked) 
+                nodeCircuit.Add(AStarManager.Instance.WorldNodes[randomNode]);
+        }
     }
 
     public void StartPatrolFromLocation(Transform start)

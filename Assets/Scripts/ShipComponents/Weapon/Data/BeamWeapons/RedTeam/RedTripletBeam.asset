@@ -17,4 +17,6 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 256
+  impactParticle: {fileID: 1681492167220961024, guid: f4b3087b6343d4045a754234215cc127,
+    type: 3}
   laserDuration: 0.3
