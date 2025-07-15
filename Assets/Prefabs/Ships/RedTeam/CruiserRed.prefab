@@ -1250,13 +1250,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoidPriority: 1
-  separationRadius: 80
+  separationRadius: 100
   cohesionRadius: 150
   alignmentRadius: 180
   teamLayer:
     serializedVersion: 2
     m_Bits: 128
-  separationWeight: 1
+  separationWeight: 1.5
   cohesionWeight: 0.1
   alignmentWeight: 0.6
   DebugGizmos: 0

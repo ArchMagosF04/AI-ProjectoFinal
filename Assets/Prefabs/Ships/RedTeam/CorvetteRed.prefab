@@ -203,7 +203,7 @@ MonoBehaviour:
   teamLayer:
     serializedVersion: 2
     m_Bits: 128
-  separationWeight: 1.5
+  separationWeight: 2
   cohesionWeight: 0.1
   alignmentWeight: 0.8
   DebugGizmos: 0
