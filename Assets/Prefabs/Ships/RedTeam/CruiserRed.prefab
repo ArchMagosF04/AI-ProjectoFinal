@@ -1350,8 +1350,8 @@ MonoBehaviour:
   maxHealth: 3500
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 15
-  healthRegen: 0
-  healthRegenTick: 0
+  healthRegen: 5
+  healthRegenTick: 7
   deathParticles:
   - {fileID: 6749623144941601648, guid: 11df4206443bb184f99161c2268c8c05, type: 3}
   - {fileID: 7314171669597743310, guid: 8b6103958b78d7f40ab6aba8fb90395b, type: 3}

@@ -610,7 +610,7 @@ MonoBehaviour:
   teamLayer:
     serializedVersion: 2
     m_Bits: 128
-  separationWeight: 1.5
+  separationWeight: 2
   cohesionWeight: 0.1
   alignmentWeight: 1
   DebugGizmos: 0
@@ -704,8 +704,8 @@ MonoBehaviour:
   maxHealth: 150
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 20
-  healthRegen: 0
-  healthRegenTick: 0
+  healthRegen: 2
+  healthRegenTick: 3
   deathParticles:
   - {fileID: 4247564428006709776, guid: 3005f70c211567b4696bc90e927f103b, type: 3}
   - {fileID: 6527638195966634242, guid: 360c1b4f521488549afe5859dfd1cf41, type: 3}

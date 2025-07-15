@@ -196,14 +196,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b3cf2c756c0ff459f6c28850f86aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoidPriority: 3
-  separationRadius: 32
+  BoidPriority: 4
+  separationRadius: 45
   cohesionRadius: 45
   alignmentRadius: 60
   teamLayer:
     serializedVersion: 2
     m_Bits: 128
-  separationWeight: 2
+  separationWeight: 3
   cohesionWeight: 0.1
   alignmentWeight: 0.8
   DebugGizmos: 0
@@ -297,8 +297,8 @@ MonoBehaviour:
   maxHealth: 800
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 20
-  healthRegen: 0
-  healthRegenTick: 0
+  healthRegen: 4
+  healthRegenTick: 3
   deathParticles:
   - {fileID: 3872354423513460817, guid: d06c0b0261b9d8c469b767363cc2f50b, type: 3}
   - {fileID: 581771736156101043, guid: c9d3445ead5fe884db56f29ce3ea54ae, type: 3}

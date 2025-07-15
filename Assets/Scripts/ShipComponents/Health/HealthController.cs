@@ -54,6 +54,7 @@ public class HealthController : MonoBehaviour
         if (HealthRegenActive && Time.time > lastRegenTick + healthRegenTick)
         {
             HealShip(healthRegen);
+            lastRegenTick = Time.time;
         }
     }
 

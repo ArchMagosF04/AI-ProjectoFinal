@@ -648,13 +648,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoidPriority: 2
-  separationRadius: 50
+  separationRadius: 75
   cohesionRadius: 60
   alignmentRadius: 100
   teamLayer:
     serializedVersion: 2
     m_Bits: 128
-  separationWeight: 1
+  separationWeight: 3
   cohesionWeight: 0.1
   alignmentWeight: 0.6
   DebugGizmos: 0
@@ -748,8 +748,8 @@ MonoBehaviour:
   maxHealth: 1500
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 15
-  healthRegen: 0
-  healthRegenTick: 0
+  healthRegen: 4
+  healthRegenTick: 2
   deathParticles:
   - {fileID: 3006021375099473529, guid: f369b3935f8136442bd7606d3076fd2e, type: 3}
   - {fileID: 8122167337380164284, guid: 6f165e8563e24f54d8baff340daa959d, type: 3}
