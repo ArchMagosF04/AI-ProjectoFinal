@@ -64,14 +64,14 @@ public class ShipController : MonoBehaviour
         SetUpStateMachine();
         SetShipID();
 
-        if (GetComponent<LeaderComponent>() != null) return;
-
         if (gameObject.tag == "RedTeam")
         {
+            GameManager.Instance.RegisterAsRedTeam();
             if (GameManager.Instance.RedAdmiral != null) GameManager.Instance.RedAdmiral.OnDeath += OnLeaderDeath;
         }
         else if (gameObject.tag == "BlueTeam")
         {
+            GameManager.Instance.RegisterAsBlueTeam();
             if (GameManager.Instance.BlueAdmiral != null) GameManager.Instance.BlueAdmiral.OnDeath += OnLeaderDeath;
         }
     }
@@ -89,11 +89,13 @@ public class ShipController : MonoBehaviour
     protected virtual void OnEnable() 
     {
         ShipHealth.OnLowHealth += FleeOnLowHealth;
+        ShipHealth.OnDeath += RecordDeath;
     }
     protected virtual void OnDisable() 
     {
         ShipHealth.OnLowHealth -= FleeOnLowHealth;
-        stateMachine.OnStateChange += GetStateName;
+        ShipHealth.OnDeath -= RecordDeath;
+        stateMachine.OnStateChange -= GetStateName;
 
         if (gameObject.tag == "RedTeam")
         {
@@ -106,6 +108,18 @@ public class ShipController : MonoBehaviour
     }
 
     #endregion
+
+    protected virtual void RecordDeath()
+    {
+        if (gameObject.tag == "RedTeam")
+        {
+            GameManager.Instance.UnregisterFromRedTeam();
+        }
+        else if (gameObject.tag == "BlueTeam")
+        {
+            GameManager.Instance.UnregisterFromBlueTeam();
+        }
+    }
 
     protected virtual void SetUpStateMachine()
     {
