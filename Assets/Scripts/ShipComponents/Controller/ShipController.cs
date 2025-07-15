@@ -57,6 +57,17 @@ public class ShipController : MonoBehaviour
     {
         SetUpStateMachine();
         SetShipID();
+
+        if (GetComponent<LeaderComponent>() != null) return;
+
+        if (gameObject.tag == "RedTeam")
+        {
+            GameManager.Instance.RedAdmiral.OnDeath += OnLeaderDeath;
+        }
+        else if (gameObject.tag == "BlueTeam")
+        {
+            GameManager.Instance.BlueAdmiral.OnDeath += OnLeaderDeath;
+        }
     }
 
     protected virtual void Update()
@@ -76,6 +87,15 @@ public class ShipController : MonoBehaviour
     protected virtual void OnDisable() 
     {
         ShipHealth.OnLowHealth -= FleeOnLowHealth;
+
+        if (gameObject.tag == "RedTeam")
+        {
+            GameManager.Instance.RedAdmiral.OnDeath -= OnLeaderDeath;
+        }
+        else if (gameObject.tag == "BlueTeam")
+        {
+            GameManager.Instance.BlueAdmiral.OnDeath -= OnLeaderDeath;
+        }
     }
 
     #endregion
