@@ -74,7 +74,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   fighterMultiplier: 0.5
-  corvetteMultiplier: 1
+  corvetteMultiplier: 1.5
   destroyerMultiplier: 2
   cruiserMultiplier: 3
   debugGizmos: 0
@@ -163,6 +163,9 @@ MonoBehaviour:
   weapons:
   - {fileID: 7866299128593704230}
   - {fileID: 4032955336230287499}
+  leaderRoulette: {fileID: 11400000, guid: 2e89544f79ac2ce46b99882985c54f59, type: 2}
+  currentStateName: 
+  <AttackTarget>k__BackingField: {fileID: 0}
 --- !u!114 &69278330403895977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +223,7 @@ MonoBehaviour:
   <TargetLocation>k__BackingField: {fileID: 0}
   rotationSpeed: 135
   moveSpeed: 40
-  turnThreshold: 0.2
+  turnThreshold: 0
   timePrediction: 0.2
   closeEnoughDist: 150
   debugTargetFuturePos: 0
@@ -997,7 +1000,7 @@ GameObject:
   - component: {fileID: 7347196921214993159}
   - component: {fileID: 2731441613610409583}
   - component: {fileID: 3004690544529515819}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}

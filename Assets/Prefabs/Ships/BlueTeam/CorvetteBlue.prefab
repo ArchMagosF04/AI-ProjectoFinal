@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7661561877154168937}
   - component: {fileID: 6340732637912026855}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RapidFireCannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1660592084043518118}
   - component: {fileID: 4546907701461821420}
   - component: {fileID: 1081825842106446841}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,6 +247,9 @@ MonoBehaviour:
   weapons:
   - {fileID: 6555094526734541470}
   - {fileID: 6340732637912026855}
+  leaderRoulette: {fileID: 11400000, guid: 2e89544f79ac2ce46b99882985c54f59, type: 2}
+  currentStateName: 
+  <AttackTarget>k__BackingField: {fileID: 0}
 --- !u!114 &7918015704542274689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +307,7 @@ MonoBehaviour:
   <TargetLocation>k__BackingField: {fileID: 0}
   rotationSpeed: 135
   moveSpeed: 40
-  turnThreshold: 0.2
+  turnThreshold: 0
   timePrediction: 0.2
   closeEnoughDist: 150
   debugTargetFuturePos: 0
@@ -394,7 +397,7 @@ GameObject:
   - component: {fileID: 8946344533612902750}
   - component: {fileID: 8410965049220896789}
   - component: {fileID: 7749482940376411722}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8632563574404508590}
   - component: {fileID: 6555094526734541470}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RapidFireCannon
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}

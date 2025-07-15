@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 386327473389784442}
   - component: {fileID: 1624067143301530566}
   - component: {fileID: 3347461111173623308}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 8236987363695736728}
   - component: {fileID: 5634963945187451674}
   - component: {fileID: 6668252590969471896}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4832053756241887054}
   - component: {fileID: 2028624801353925211}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LightCannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -447,7 +447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8897903711815492965}
   - component: {fileID: 3652025992152840743}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LightCannon
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -572,6 +572,9 @@ MonoBehaviour:
   weapons:
   - {fileID: 3652025992152840743}
   - {fileID: 2028624801353925211}
+  leaderRoulette: {fileID: 11400000, guid: 2e89544f79ac2ce46b99882985c54f59, type: 2}
+  currentStateName: 
+  <AttackTarget>k__BackingField: {fileID: 0}
 --- !u!114 &4939687179920651766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,7 +591,7 @@ MonoBehaviour:
   avoidForce: 70
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   DebugGizmos: 0
 --- !u!114 &6472209243630112273
 MonoBehaviour:
@@ -703,6 +706,8 @@ MonoBehaviour:
   maxHealth: 150
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 20
+  healthRegen: 0
+  healthRegenTick: 0
   deathParticles:
   - {fileID: 4247564428006709776, guid: 3005f70c211567b4696bc90e927f103b, type: 3}
   - {fileID: 6527638195966634242, guid: 360c1b4f521488549afe5859dfd1cf41, type: 3}
