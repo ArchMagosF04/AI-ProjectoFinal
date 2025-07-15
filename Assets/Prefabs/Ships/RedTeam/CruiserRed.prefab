@@ -1558,7 +1558,7 @@ MonoBehaviour:
     m_Bits: 8
   fighterMultiplier: 3
   corvetteMultiplier: 2
-  destroyerMultiplier: 1
+  destroyerMultiplier: 1.5
   cruiserMultiplier: 0.5
   debugGizmos: 0
 --- !u!1 &6775129726163018611

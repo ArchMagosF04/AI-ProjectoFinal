@@ -37,16 +37,17 @@ public class BeamWeapon : Weapon
             if (hit.collider.TryGetComponent<HealthController>(out HealthController health))
             {
                 if (beamStats.ImpactParticle != null) Instantiate(beamStats.ImpactParticle, hit.point, Quaternion.identity);
-                health.TakeDamage(beamStats.Damage);
                 timeOfLastShot = Time.time;
                 if (sounds != null) SoundManager.Instance.CreateSound().WithSoundData(sounds.soundData[0]).WithPosition(transform.position).WithRandomPitch().Play();
                 StartCoroutine(DrawLine());
+                health.TakeDamage(beamStats.Damage);
             }
         }
     }
 
     private IEnumerator DrawLine()
     {
+        if (Target == null) StopAllCoroutines();
         lineRenderer.SetPosition(1, Target.position);
         lineRenderer.enabled = true;
 
