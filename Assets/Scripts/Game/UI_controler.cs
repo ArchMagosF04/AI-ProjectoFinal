@@ -17,10 +17,16 @@ public class UIControler : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void GoToTheGame()
+    public void GoToLevel1()
     {
         SceneManager.LoadScene(1);
     }
+
+     public void GoToLevel2()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 
     public void Exit()
     {
