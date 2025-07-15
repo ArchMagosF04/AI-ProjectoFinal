@@ -542,7 +542,9 @@ MonoBehaviour:
   lowHealthThreshold: 15
   healthRegen: 0
   healthRegenTick: 0
-  deathParticles: []
+  deathParticles:
+  - {fileID: 646141984294289024, guid: fb15cb656e23aee44b625ca58c7bf39b, type: 3}
+  - {fileID: 7314171669597743310, guid: 8b6103958b78d7f40ab6aba8fb90395b, type: 3}
   sounds: {fileID: 11400000, guid: 9147d3d3c050f50439421117cb80c950, type: 2}
 --- !u!1 &1385023281268095839
 GameObject:
