@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     private int damage;
     private LayerMask targetMask;
     private float lifeTime;
+    private GameObject impactParticle;
 
     private Rigidbody rb;
 
@@ -25,12 +26,13 @@ public class Bullet : MonoBehaviour
         startTime = Time.time;
     }
 
-    public void SetStats(float speed, int damage, LayerMask targetMask, float lifetime)
+    public void SetStats(float speed, int damage, LayerMask targetMask, float lifetime, GameObject particle)
     {
         this.speed = speed;
         this.damage = damage;
         this.targetMask = targetMask;
         this.lifeTime = lifetime;
+        this.impactParticle = particle;
     }
 
     public void FireBullet()
@@ -49,6 +51,7 @@ public class Bullet : MonoBehaviour
         {
             if (other.TryGetComponent<HealthController>(out HealthController health))
             {
+                if (impactParticle != null) Instantiate(impactParticle, transform.position, Quaternion.identity);
                 health.TakeDamage(damage);
                 OnBulletDeath();
             }

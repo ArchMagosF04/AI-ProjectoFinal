@@ -23,7 +23,7 @@ public class ProjectileWeapon : Weapon
         if (sounds != null) SoundManager.Instance.CreateSound().WithSoundData(sounds.soundData[0]).WithPosition(transform.position).WithRandomPitch().Play();
 
         Bullet bullet = Instantiate(projectileStats.BulletPrefab, transform.position, Quaternion.LookRotation(direction, Vector3.up));
-        bullet.SetStats(projectileStats.Speed, projectileStats.Damage, projectileStats.TargetMask, projectileStats.LifeTime);
+        bullet.SetStats(projectileStats.Speed, projectileStats.Damage, projectileStats.TargetMask, projectileStats.LifeTime, projectileStats.ImpactParticle);
         bullet.FireBullet();
         timeOfLastShot = Time.time;
     }

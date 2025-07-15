@@ -12,4 +12,7 @@ public class WeaponStats : ScriptableObject
 
     [SerializeField] private LayerMask targetMask;
     public LayerMask TargetMask => targetMask;
+
+    [SerializeField] private GameObject impactParticle;
+    public GameObject ImpactParticle => impactParticle;
 }
