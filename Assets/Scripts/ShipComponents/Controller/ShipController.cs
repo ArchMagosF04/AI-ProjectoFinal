@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,8 +69,14 @@ public class ShipController : MonoBehaviour
         stateMachine.CurrentState.OnFixedUpdate();
     }
 
-    protected virtual void OnEnable() { }
-    protected virtual void OnDisable() { }
+    protected virtual void OnEnable() 
+    {
+        ShipHealth.OnLowHealth += FleeOnLowHealth;
+    }
+    protected virtual void OnDisable() 
+    {
+        ShipHealth.OnLowHealth -= FleeOnLowHealth;
+    }
 
     #endregion
 
@@ -83,6 +88,76 @@ public class ShipController : MonoBehaviour
     protected virtual void SetShipID() { }
 
     public virtual void SelectAttackTarget(Transform target) => AttackTarget = target;
+
+    public virtual void FleeOnLowHealth()
+    {
+        stateMachine.ChangeState(FleeState);
+        ShipHealth.OnLowHealth -= FleeOnLowHealth;
+    }
+
+    public virtual void InspireBuff()
+    {
+        ShipHealth.OnLowHealth -= FleeOnLowHealth;
+        ShipHealth.ToggleHealthRegen(true);
+    }
+
+    public virtual void OnLeaderDeath()
+    {
+        float inspireBuff = 0.20f;
+        float keepFighting = 0.60f;
+        float fleeInTerror = 0.20f;
+
+        int currentHealth = ShipHealth.CurrentHealth;
+        int maxHealth = ShipHealth.MaxHealth;
+
+        float upperThreshold = 0.8f;
+        float lowerThreshold = 0.3f;
+
+        if (currentHealth >= maxHealth * upperThreshold)
+        {
+            inspireBuff *= 2.5f;
+            keepFighting *= 0.66f;
+            fleeInTerror *= 0.5f;
+        }
+        else if (currentHealth <= maxHealth * lowerThreshold)
+        {
+            inspireBuff *= 0.5f;
+            keepFighting *= 0.66f;
+            fleeInTerror *= 2.5f;
+        }
+
+        float total = inspireBuff + keepFighting + fleeInTerror;
+
+        inspireBuff /= total;
+        keepFighting /= total;
+        fleeInTerror /= total;
+
+        float[] table = { inspireBuff, keepFighting, fleeInTerror };
+
+        float value = Random.value;
+        int i = 0;
+
+        while (i < table.Length && value > table[i])
+        {
+            value -= table[i];
+            i++;
+        }
+
+        switch (i)
+        {
+            case 0: //Inspiring Buff
+                InspireBuff();
+                Debug.Log("We will avenge the fallen.");
+                break;
+            case 2: //Flee In Terror
+                FleeOnLowHealth();
+                Debug.Log("Game over man, game over.");
+                break;
+            default: //Keep Fighting
+                Debug.Log("Keep shooting.");
+                break;
+        }
+    }
 
     #region Ship Weapons
     public virtual void ToggleWeaponManualControl(bool toggle)

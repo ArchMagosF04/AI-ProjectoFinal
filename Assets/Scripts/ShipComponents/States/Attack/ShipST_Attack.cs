@@ -21,11 +21,19 @@ public class ShipST_Attack : BaseState
     {
         base.OnUpdate();
 
-        if (controller.AttackTarget == null) stateMachine.ChangeState(controller.IdleState);
+        if (controller.AttackTarget == null)
+        {
+            stateMachine.ChangeState(controller.IdleState);
+            return;
+        }
 
         if (controller.AttackTarget != null && !controller.WeaponSensor.CanDetectTarget(controller.AttackTarget))
         {
-            if (!GetNewCloseTarget()) stateMachine.ChangeState(controller.ChaseState);
+            if (!GetNewCloseTarget())
+            {
+                stateMachine.ChangeState(controller.ChaseState);
+                return;
+            }
         }
 
         movement.CalculateDesiredDirection(false);

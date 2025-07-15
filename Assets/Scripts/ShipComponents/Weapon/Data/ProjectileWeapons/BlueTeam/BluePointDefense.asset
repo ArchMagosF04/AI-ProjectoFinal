@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75059fc2fbe4574f9d22cf23b1dd395, type: 3}
   m_Name: BluePointDefense
   m_EditorClassIdentifier: 
-  timeBetweenShots: 1
-  damage: 20
+  timeBetweenShots: 2
+  damage: 12
   targetMask:
     serializedVersion: 2
     m_Bits: 128

@@ -22,11 +22,13 @@ public class ShipST_Chase : BaseState
         if (controller.AttackTarget != null && controller.WeaponSensor.CanDetectTargetWithDistanceMultiplier(controller.AttackTarget, 0.8f))
         {
             stateMachine.ChangeState(controller.AttackState);
+            return;
         }
         if (controller.AttackTarget == null || !controller.ShipSensor.CanDetectTarget(controller.AttackTarget))
         {
             controller.SelectAttackTarget(null);
             stateMachine.ChangeState(controller.IdleState);
+            return;
         }
 
         movement.CalculateDesiredDirection(true);

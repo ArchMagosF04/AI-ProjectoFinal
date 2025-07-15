@@ -25,13 +25,11 @@ public class CruiserController : ShipController
     protected override void OnEnable()
     {
         base.OnEnable();
-        ShipHealth.OnLowHealth += FleeOnLowHealth;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        ShipHealth.OnLowHealth -= FleeOnLowHealth;
     }
 
     #endregion
@@ -53,11 +51,5 @@ public class CruiserController : ShipController
         AttackState = new ShipST_Attack(this, stateMachine, movement);
 
         stateMachine.Initialize(IdleState);
-    }
-
-    private void FleeOnLowHealth()
-    {
-        stateMachine.ChangeState(FleeState);
-        ShipHealth.OnLowHealth -= FleeOnLowHealth;
     }
 }

@@ -222,7 +222,7 @@ MonoBehaviour:
   moveSpeed: 40
   turnThreshold: 0.2
   timePrediction: 0.2
-  closeEnoughDist: 0
+  closeEnoughDist: 150
   debugTargetFuturePos: 0
   measureDistance: 0
   distanceToMeasure: 0
@@ -294,6 +294,8 @@ MonoBehaviour:
   maxHealth: 800
   <CurrentHealth>k__BackingField: 0
   lowHealthThreshold: 20
+  healthRegen: 0
+  healthRegenTick: 0
   deathParticles:
   - {fileID: 3872354423513460817, guid: d06c0b0261b9d8c469b767363cc2f50b, type: 3}
   - {fileID: 581771736156101043, guid: c9d3445ead5fe884db56f29ce3ea54ae, type: 3}

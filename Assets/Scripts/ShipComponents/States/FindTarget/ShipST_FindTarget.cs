@@ -29,6 +29,7 @@ public class ShipST_FindTarget : BaseState
         if (controller.AttackTarget != null && controller.ShipSensor.CanDetectTarget(controller.AttackTarget))
         {
             stateMachine.ChangeState(controller.ChaseState);
+            return;
         }
 
         if (pathfind.ProgressChase()) ChangeTargetDest();
@@ -36,6 +37,7 @@ public class ShipST_FindTarget : BaseState
         {
             movement.ChangeTarget(null);
             stateMachine.ChangeState(controller.IdleState);
+            return;
         }
 
 

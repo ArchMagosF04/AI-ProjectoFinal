@@ -29,6 +29,7 @@ public class ShipST_Idle : BaseState
         if (Time.time > startTime + idleDuration)
         {
             stateMachine.ChangeState(controller.PatrolState);
+            return;
         }
     }
 
@@ -56,6 +57,7 @@ public class ShipST_Idle : BaseState
                 controller.SelectAttackTarget(targetId.Transform);
 
                 stateMachine.ChangeState(controller.FindTargetState);
+                return;
             }
         }
     }

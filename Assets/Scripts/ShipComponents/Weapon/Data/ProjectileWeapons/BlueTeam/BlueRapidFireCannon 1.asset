@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlueRapidFireCannon 1
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.05
-  damage: 2
+  damage: 3
   targetMask:
     serializedVersion: 2
     m_Bits: 128

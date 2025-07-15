@@ -72,7 +72,7 @@ public class ShipMovement : MonoBehaviour
                 break;
         }
 
-        if (useAligment && currentMode != SteeringMode.Flee)
+        if (useAligment || currentMode != SteeringMode.Flee)
         {
             dir += Boid.CalculateAlignment();
             dir /= 2;

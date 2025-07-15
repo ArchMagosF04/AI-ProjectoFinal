@@ -17,4 +17,4 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  laserDuration: 0.1
+  laserDuration: 0.3

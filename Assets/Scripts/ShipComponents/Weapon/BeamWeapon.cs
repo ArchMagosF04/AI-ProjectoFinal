@@ -36,7 +36,6 @@ public class BeamWeapon : Weapon
         {
             if (hit.collider.TryGetComponent<HealthController>(out HealthController health))
             {
-                Debug.Log("Fire");
                 health.TakeDamage(beamStats.Damage);
                 timeOfLastShot = Time.time;
                 StartCoroutine(DrawLine());

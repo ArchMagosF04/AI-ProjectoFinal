@@ -40,16 +40,21 @@ public class ShipST_Flee : BaseState
     {
         base.OnUpdate();
 
-        if (movement.TargetLocation == null) GetTargetToFleeFrom();
-
         if (Time.time > startTime + maxFleeTime || Vector3.Distance(startLocation, controller.transform.position.NoY()) >= maxFleeDistance)
         {
             stateMachine.ChangeState(controller.IdleState);
+            return;
         }
 
         movement.CalculateDesiredDirection(false);
         movement.RotateTowardsDirection(movement.DesiredDirection);
         movement.MoveShip(true, false);
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        if (movement.TargetLocation == null) GetTargetToFleeFrom();
     }
 
     public override void OnExit()

@@ -240,7 +240,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.15
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -434,6 +434,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: fcc9e57a00fa78f4f9d049c917d6acc8, type: 2}
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
+  isManualLocked: 0
   sensor: {fileID: 0}
   radar: {fileID: 0}
 --- !u!1 &5107662300292380133
@@ -483,6 +484,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: fcc9e57a00fa78f4f9d049c917d6acc8, type: 2}
   <Target>k__BackingField: {fileID: 0}
   freeFireMode: 1
+  isManualLocked: 0
   sensor: {fileID: 0}
   radar: {fileID: 0}
 --- !u!1 &6882402299513720096
@@ -586,7 +588,7 @@ MonoBehaviour:
   avoidForce: 70
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 8
   DebugGizmos: 0
 --- !u!114 &6472209243630112273
 MonoBehaviour:

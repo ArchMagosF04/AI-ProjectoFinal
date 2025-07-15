@@ -7,8 +7,12 @@ public class HealthController : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] private int maxHealth;
+    public int MaxHealth => maxHealth;
     [field: SerializeField] public int CurrentHealth { get; private set; }
     [SerializeField, Range(1f, 100f)] private float lowHealthThreshold;
+
+    [SerializeField] private int healthRegen;
+    [SerializeField] private float healthRegenTick;
 
     [Header("Particles")]
     [SerializeField] private GameObject[] deathParticles;
@@ -18,12 +22,16 @@ public class HealthController : MonoBehaviour
     public Action OnLowHealth;
 
     //Other
+    public bool HealthRegenActive { get; private set; }
     public bool LowHealthInvoked { get; private set; }
+    private float lastRegenTick;
 
-    private void Start()
+    private void Awake()
     {
         CurrentHealth = maxHealth;
         LowHealthInvoked = false;
+        HealthRegenActive = false;
+        lastRegenTick = Time.time;
     }
 
     private void Update()
@@ -31,6 +39,18 @@ public class HealthController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             TakeDamage(9999999);
+        }
+
+        HealthRegen();
+    }
+
+    public void ToggleHealthRegen(bool healthRegen) => HealthRegenActive = healthRegen;
+
+    private void HealthRegen()
+    { 
+        if (HealthRegenActive && Time.time > lastRegenTick + healthRegenTick)
+        {
+            HealShip(healthRegen);
         }
     }
 
@@ -48,6 +68,19 @@ public class HealthController : MonoBehaviour
         {
             ShipDestroyed();
         }
+    }
+
+    public void HealShip(int amount)
+    {
+        CurrentHealth += amount;
+        if (CurrentHealth > maxHealth) { CurrentHealth = maxHealth; }
+    }
+
+    public void HealShip(float percentage)
+    {
+        float healAmount = maxHealth * percentage;
+        CurrentHealth += Mathf.RoundToInt(healAmount);
+        if (CurrentHealth > maxHealth) { CurrentHealth = maxHealth; }
     }
 
     private void ShipDestroyed()

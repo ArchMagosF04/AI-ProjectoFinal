@@ -50,6 +50,7 @@ public class ShipST_Patrol : BaseState
                 controller.SelectAttackTarget(targetId.Transform);
 
                 stateMachine.ChangeState(controller.FindTargetState);
+                return;
             }
         }
     }
